@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | ADXE Corp</title>
+    <meta name="description" content="Reach out to ADXE Corp for your enterprise IT needs.">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav id="navbar" class="scrolled">
+        <a href="index.html" class="logo">ADXE CORP</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <section style="margin-top: 80px;">
+        <h1 class="section-title">Partner <span>With Us</span></h1>
+        <div class="contact-container reveal">
+            <div class="contact-info">
+                <h3>Get In Touch</h3>
+                <p>Reach out to discuss your enterprise IT infrastructure needs and request a secure audit.</p>
+
+                <div class="info-item">
+                    <strong>Corporate Headquarters</strong>
+                    [Insert Commercial Address]
+                </div>
+                <div class="info-item">
+                    <strong>Direct Line</strong>
+                    [Insert Dedicated Business Number]
+                </div>
+                <div class="info-item">
+                    <strong>Corporate Email</strong>
+                    contact@adxecorp.com
+                </div>
+            </div>
+
+            <form
+                onsubmit="event.preventDefault(); alert('Message sent successfully. Our team will contact you shortly.');">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <input type="text" id="company">
+                </div>
+                <div class="form-group">
+                    <label for="email">Business Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Inquiry</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom" style="margin-top: 0; padding-top: 20px; padding-bottom: 20px;">
+            <p>&copy; 2026 ADXE Corp. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
