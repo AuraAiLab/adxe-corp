@@ -27,36 +27,42 @@
                 <p>Reach out to discuss your enterprise IT infrastructure needs and request a secure audit.</p>
 
                 <div class="info-item">
-                    <strong>Corporate Headquarters</strong>
-                    7901 4th St N #13026; St. Petersburg, FL 33702
+                    <div class="info-item">
+                        <strong>Corporate Headquarters</strong>
+                        7901 4th St. N, Suite 13026<br>St. Petersburg, Fl. 33702
+                    </div>
+                    <div class="info-item">
+                        <strong>Direct Line</strong>
+                        <a href="tel:+15619092907"
+                            style="color: var(--text-main); text-decoration: none;">561-909-2907</a>
+                    </div>
+                    <div class="info-item">
+                        <strong>Corporate Email</strong>
+                        <a href="mailto:admin@adxecorp.com"
+                            style="color: var(--text-main); text-decoration: none;">admin@adxecorp.com</a>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <strong>Corporate Email</strong>
-                    admin@adxecorp.com
-                </div>
-            </div>
 
-            <form
-                onsubmit="event.preventDefault(); alert('Message sent successfully. Our team will contact you shortly.');">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="company">Company</label>
-                    <input type="text" id="company">
-                </div>
-                <div class="form-group">
-                    <label for="email">Business Email</label>
-                    <input type="email" id="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Inquiry</label>
-                    <textarea id="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
-            </form>
-        </div>
+                <form action="https://formspree.io/f/xdkqvvnj" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Business Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Inquiry</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">Submit Inquiry</button>
+                </form>
+            </div>
     </section>
 
     <footer>
