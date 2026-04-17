@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Four Pillars: What Outcome the Operations Transformed — ADXE</title>
+<title>ADXE — Autonomous Data & Execution</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Instrument+Serif:ital@0;1&display=swap');
 
@@ -680,7 +680,7 @@
   </div>
 
   <div class="hero-headline-block">
-    <h1>Autonomous Data<br>&amp; Execution</h1>
+    <h1>Autonomous Data<br>& Execution</h1>
     <p class="hero-h1-right">Engineered Efficiency<br><span style="font-size: clamp(1.8rem, 3.5vw, 3.2rem); color: var(--text-secondary); display: block; margin-top: 0.4rem;">Autonomous Execution</span></p>
   </div>
 
@@ -900,3 +900,80 @@
 
 <div class="divider"><div class="divider-line"></div></div>
 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Start a Project</div>
+  <h2 class="section-title">Start the conversation.</h2>
+  <p class="section-desc" style="margin-bottom: 0;">Tell us what you're automating. We'll tell you how we'd build it — and what it actually takes to make it run in production.</p>
+
+  <div class="contact-form-wrap fade-in">
+    <div style="display: flex; gap: 2rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border);">
+      <div style="flex: 1;">
+        <div style="font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">Response time</div>
+        <div style="font-size: 0.95rem; color: var(--text-secondary); font-weight: 300;">Within 24 hours</div>
+      </div>
+      <div style="flex: 1;">
+        <div style="font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">First call</div>
+        <div style="font-size: 0.95rem; color: var(--text-secondary); font-weight: 300;">Focused. 30 minutes. No decks.</div>
+      </div>
+      <div style="flex: 1;">
+        <div style="font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;">What to bring</div>
+        <div style="font-size: 0.95rem; color: var(--text-secondary); font-weight: 300;">The problem. We'll handle the rest.</div>
+      </div>
+    </div>
+
+    <form class="contact-form" action="mailto:hello@adxecorp.com" method="post" enctype="text/plain">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="text" name="company" placeholder="Company" class="full">
+      <select name="use_case" class="full">
+        <option value="" disabled selected>What are you looking to automate?</option>
+        <option value="autonomous-ops">Autonomous Operations / Workflow Automation</option>
+        <option value="ai-infra">AI Systems & Infrastructure Engineering</option>
+        <option value="data-intelligence">Data Enrichment & Intelligence</option>
+        <option value="secops">AI SecOps & Observability</option>
+        <option value="other">Something else — I'll explain below</option>
+      </select>
+      <textarea name="message" placeholder="Describe what you're building or what's slowing you down. The more specific, the better." class="full" required></textarea>
+      <div class="full">
+        <button type="submit" class="btn-primary">Send Inquiry</button>
+      </div>
+    </form>
+    <p class="contact-note">Prefer a direct line? Reach us at <a href="mailto:hello@adxecorp.com" style="color: var(--accent); text-decoration: none;">hello@adxecorp.com</a></p>
+  </div>
+</section>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- FINAL CTA -->
+<div class="cta-section fade-in">
+  <div class="section-label" style="text-align: center; margin-bottom: 1.5rem;">Your move</div>
+  <h2 class="section-title">Your competitors aren't waiting.</h2>
+  <p class="section-desc">The window between early adoption and table stakes is closing. The organizations that move now aren't just gaining efficiency — they're building operational moats that compound over time.</p>
+  <div class="cta-buttons">
+    <a href="#contact" class="btn-primary">Start a Project</a>
+    <a href="#capabilities" class="btn-secondary">Explore Capabilities</a>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">&copy; 2026 ADXE Corp. All rights reserved.</div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
