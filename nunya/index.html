@@ -160,14 +160,15 @@
     }
 
     .content {
-      padding: 40px 50px 80px;
+      padding: 0 50px 80px;
     }
 
     .hero {
       position: relative;
       background: var(--panel);
       border: 1px solid var(--line);
-      border-radius: 28px;
+      border-top: none; /* Flush with top nav */
+      border-radius: 0 0 28px 28px;
       padding: 0;
       overflow: hidden;
       box-shadow: var(--shadow);
