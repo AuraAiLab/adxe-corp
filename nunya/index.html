@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>ADXC Autonomous | Internal Portal</title>
+  <title>ADXE | Internal Command Center</title>
   <style>
     :root {
       --bg: #0b0d10;
@@ -38,13 +38,43 @@
       display: grid;
       grid-template-columns: 300px minmax(0, 1fr);
       min-height: 100vh;
+      padding-top: 60px; /* Space for top nav */
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(9, 11, 13, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--line);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+    }
+
+    .top-nav .logo {
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+    }
+
+    .top-nav .tagline {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
     }
 
     .sidebar {
       position: sticky;
-      top: 0;
+      top: 60px;
       align-self: start;
-      height: 100vh;
+      height: calc(100vh - 60px);
       padding: 28px 20px 24px;
       border-right: 1px solid var(--line);
       background: rgba(9, 11, 13, 0.92);
@@ -221,33 +251,32 @@
     }
   </style>
 </head>
-<body>
+  <header class="top-nav">
+    <div class="logo">ADXE</div>
+    <div class="tagline">Applied Design & Execution | Efficiently Engineered autonomous systems</div>
+    <nav>
+      <a href="#" class="nav-title" style="margin:0; padding:0; cursor:pointer;">↑ Back to Top</a>
+    </nav>
+  </header>
+
   <div class="shell">
     <aside class="sidebar">
       <div class="brand">
         <div class="eyebrow">Internal Portal</div>
-        <h1>ADXC Autonomous</h1>
-        <p>Architectured Design Autonomous Systems internal portal</p>
+        <h1>ADXE</h1>
+        <p>Applied Design & Execution</p>
+        <p style="font-size: 11px; margin-top: 5px;">Efficiently Engineered autonomous systems</p>
       </div>
 
       <div class="nav-group">
         <div class="nav-title">Intelligence & Strategy</div>
         <nav class="nav">
-          <a href="../rick_legacy_and_civil_strategy.html">rick legacy</a>
+          <a href="../construction_law_ai_brief.html">Law Office</a>
+          <a href="../rick_legacy_and_civil_strategy.html">Rick E. Legacy Project</a>
           <a href="../adxe_civil_works_strategy.html">Civil Works</a>
-          <a href="../construction_law_ai_brief.html">law office</a>
           <a href="../enterprise_ai_blockers_and_implementations.html">AI Blockers</a>
           <a href="../ogilvy_strategy_csuite_audience.html">Ogilvy Strategy</a>
           <a href="../ogilvy_strategy_cto_audience.html">Ogilvy Strategy CTO</a>
-        </nav>
-      </div>
-
-      <div class="nav-group">
-        <div class="nav-title">System Access</div>
-        <nav class="nav">
-          <a href="#">Terminal Console</a>
-          <a href="#">Network Map</a>
-          <a href="#">Credential Vault</a>
         </nav>
       </div>
     </aside>
@@ -257,19 +286,8 @@
         <img src="hero_composite.png" alt="Gizmo the Royal Oracle Corgi" class="hero-img">
       </section>
 
-      <div class="section-grid">
-        <div class="card">
-          <h3>Autonomous Architecture</h3>
-          <p>Core design patterns and system integrity protocols for next-generation ADXC deployments.</p>
-        </div>
-        <div class="card">
-          <h3>Internal Intelligence</h3>
-          <p>Consolidated research and strategic analysis artifacts for executive review and operational planning.</p>
-        </div>
-      </div>
-
       <div class="footer">
-        ADXC Internal Portal &copy; 2026. Confidential - For Internal Use Only.
+        ADXE Internal Portal &copy; 2026. Confidential - For Internal Use Only.
       </div>
     </main>
   </div>
