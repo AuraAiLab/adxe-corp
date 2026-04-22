@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ADXE — Civil Works Market Strategy</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --ink-2: #3a3831;
+    --ink-3: #7a7670;
+    --paper: #f7f4ef;
+    --paper-2: #ede9e1;
+    --paper-3: #e0dbd0;
+    --accent: #c84b1f;
+    --accent-2: #e8763a;
+    --steel: #2c3e50;
+    --gold: #b8960c;
+    --success: #2a6b3c;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 16px; }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Instrument Sans', sans-serif;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 40px 80px;
+  }
+
+  /* ── HEADER ── */
+  .doc-header {
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--paper-3);
+    padding: 32px 0 28px;
+    margin-bottom: 48px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+  }
+  .doc-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .doc-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+  .doc-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .doc-meta {
+    text-align: right;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    line-height: 1.8;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 52px;
+  }
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--ink);
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--paper-3);
+  }
+
+  /* ── PROBLEM GRID ── */
+  .prob-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .prob-card {
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .prob-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: .08em;
+    margin-bottom: 4px;
+  }
+  .prob-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .prob-desc {
+    font-size: 12px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  /* ── DEPT TABLE ── */
+  .dept-block {
+    margin-bottom: 20px;
+  }
+  .dept-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: var(--steel);
+    color: #fff;
+    padding: 5px 12px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  .ineff-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .ineff-list li {
+    background: var(--paper-2);
+    border-left: 3px solid var(--paper-3);
+    padding: 9px 12px;
+    font-size: 12.5px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    border-radius: 0 4px 4px 0;
+  }
+  .ineff-list li strong {
+    display: block;
+    font-size: 12px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .ineff-list li.high { border-left-color: var(--accent); }
+  .ineff-list li.med { border-left-color: var(--gold); }
+
+  /* ── AI SOLUTIONS ── */
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .ai-card {
+    border: 1px solid var(--paper-3);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .ai-card-head {
+    background: var(--ink);
+    color: #f7f4ef;
+    padding: 10px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ai-card-head .dept-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    background: var(--accent);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: .06em;
+  }
+  .ai-card-body {
+    padding: 12px 14px;
+    background: var(--paper-2);
+  }
+  .ai-card-body ul {
+    list-style: none;
+    padding: 0;
+  }
+  .ai-card-body ul li {
+    font-size: 12.5px;
+    color: var(--ink-2);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--paper-3);
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .ai-card-body ul li:last-child { border-bottom: none; }
+  .ai-card-body ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--success);
+    font-weight: 600;
+  }
+
+  /* ── FATHER'S WISDOM SECTION ── */
+  .wisdom-block {
+    background: var(--steel);
+    border-radius: 8px;
+    padding: 28px 32px;
+    color: #e8e4dc;
+    position: relative;
+    overflow: hidden;
+  }
+  .wisdom-block::before {
+    content: "\201C";
+    font-family: 'DM Serif Display', serif;
+    font-size: 180px;
+    color: rgba(255,255,255,0.06);
+    position: absolute;
+    top: -30px;
+    left: 16px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .wisdom-byline {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    margin-bottom: 16px;
+  }
+  .wisdom-objections {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  .wisdom-objections li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 13.5px;
+    line-height: 1.6;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 12px;
+  }
+  .wisdom-objections li:last-child { border-bottom: none; }
+  .obj-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    background: rgba(200,75,31,0.3);
+    color: var(--accent-2);
+    padding: 2px 8px;
+    border-radius: 2px;
+    height: fit-content;
+    margin-top: 2px;
+    white-space: nowrap;
+    letter-spacing: .05em;
+  }
+  .wisdom-quote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.5;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* ── STRATEGY SECTION ── */
+  .strategy-wedge {
+    background: var(--accent);
+    color: #fff;
+    border-radius: 6px;
+    padding: 22px 26px;
+    margin-bottom: 20px;
+  }
+  .strategy-wedge h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  .strategy-wedge p {
+    font-size: 13.5px;
+    line-height: 1.6;
+    opacity: .92;
+  }
+  .pitch-block {
+    background: var(--paper-2);
+    border: 2px solid var(--ink);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+  .pitch-block .pitch-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+  }
+  .pitch-block blockquote {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  .steps-list {
+    counter-reset: steps;
+    list-style: none;
+  }
+  .steps-list li {
+    counter-increment: steps;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--paper-3);
+    align-items: start;
+  }
+  .steps-list li:last-child { border-bottom: none; }
+  .steps-list li::before {
+    content: counter(steps, decimal-leading-zero);
+    font-family: 'DM Mono', monospace;
+    font-size: 22px;
+    color: var(--accent);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .step-body strong {
+    display: block;
+    font-size: 14px;
+    color: var(--ink);
+    margin-bottom: 3px;
+  }
+  .step-body p {
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.5;
+  }
+
+  /* ── BLOCKER TABLE ── */
+  .blocker-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .blocker-table th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 400;
+  }
+  .blocker-table td {
+    padding: 11px 14px;
+    border-bottom: 1px solid var(--paper-3);
+    vertical-align: top;
+    line-height: 1.5;
+    color: var(--ink-2);
+  }
+  .blocker-table tr:last-child td { border-bottom: none; }
+  .blocker-table tr:nth-child(even) td { background: var(--paper-2); }
+  .blocker-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    white-space: nowrap;
+  }
+  .tag-red { background: #fde8e2; color: var(--accent); }
+  .tag-gold { background: #fdf6dc; color: var(--gold); }
+
+  /* ── DUE DILIGENCE ── */
+  .dd-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  .dd-card {
+    background: var(--paper-2);
+    border: 1px solid var(--paper-3);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .dd-q-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 28px;
+    color: var(--paper-3);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .dd-q {
+    font-weight: 600;
+    font-size: 13.5px;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .dd-why {
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.5;
+  }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    margin-top: 56px;
+    border-top: 1px solid var(--paper-3);
+    padding-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: .06em;
+  }
+  .footer-logo {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  @media print {
+    body { padding: 24px 28px; }
+    .prob-grid, .ai-grid, .dd-grid { grid-template-columns: repeat(2,1fr); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="doc-header">
+  <div>
+    <div class="doc-eyebrow">ADXE Corp — Internal Strategy Brief</div>
+    <h1 class="doc-title">Civil Works &<br><em>Engineering</em> Market Entry</h1>
+  </div>
+  <div class="doc-meta">
+    Version 1.0<br>
+    April 2026<br>
+    Confidential<br>
+    ADXE Corp
+  </div>
+</header>
+
+<!-- SECTION 1: TOP 10 PROBLEMS -->
+<section class="section">
+  <div class="section-label">Section 01</div>
+  <h2 class="section-title">The 10 Biggest Problems in Civil Construction Today</h2>
+  <div class="prob-grid">
+    <div class="prob-card"><div class="prob-num">01</div><div class="prob-name">Cost Overruns</div><div class="prob-desc">Projects routinely exceed budgets by 20–80%. Estimates made at bid time rarely survive field conditions.</div></div>
+    <div class="prob-card"><div class="prob-num">02</div><div class="prob-name">Schedule Delays</div><div class="prob-desc">Only 25% of large infrastructure projects finish on time. Weather, supply chain, and labor pile on daily.</div></div>
+    <div class="prob-card"><div class="prob-num">03</div><div class="prob-name">Labor Shortage</div><div class="prob-desc">The industry is millions of skilled workers short globally. An aging workforce retires faster than new talent arrives.</div></div>
+    <div class="prob-card"><div class="prob-num">04</div><div class="prob-name">Safety Incidents</div><div class="prob-desc">Construction has one of the highest fatality rates. One serious incident can shut a project down and cost tens of millions in liability.</div></div>
+    <div class="prob-card"><div class="prob-num">05</div><div class="prob-name">Supply Chain Fragility</div><div class="prob-desc">Material prices swing wildly. A steel or concrete shortage in month 6 can derail a project that was on track in month 1.</div></div>
+    <div class="prob-card"><div class="prob-num">06</div><div class="prob-name">Regulatory Complexity</div><div class="prob-desc">Permits and compliance requirements multiply every year. One missed filing can halt a project for months.</div></div>
+    <div class="prob-card"><div class="prob-num">07</div><div class="prob-name">Poor Data & Visibility</div><div class="prob-desc">Project data lives in spreadsheets and emails. Leadership can't see what's happening until it's too late.</div></div>
+    <div class="prob-card"><div class="prob-num">08</div><div class="prob-name">Rework & Defects</div><div class="prob-desc">5–15% of total project cost is wasted fixing work done wrong. Errors caught late cost 10× more to fix.</div></div>
+    <div class="prob-card"><div class="prob-num">09</div><div class="prob-name">Subcontractor Management</div><div class="prob-desc">One slow sub cascades into everyone else. Coordinating dozens of independent parties with competing schedules is relentless.</div></div>
+    <div class="prob-card"><div class="prob-num">10</div><div class="prob-name">Thin Margins & Bad Bids</div><div class="prob-desc">Civil margins average 2–5%. One underbid project wipes out profits from ten good ones. Estimating is art and science.</div></div>
+  </div>
+</section>
+
+<!-- SECTION 2: DEPT INEFFICIENCIES -->
+<section class="section">
+  <div class="section-label">Section 02</div>
+  <h2 class="section-title">Inefficiencies by Department</h2>
+
+  <div class="dept-block">
+    <div class="dept-name">Estimating</div>
+    <ul class="ineff-list">
+      <li class="high"><strong>Manual takeoffs</strong>Estimators spend 60–70% of time measuring drawings by hand — slow, error-prone, not scalable.</li>
+      <li class="high"><strong>No bid history learning</strong>Lost bids pile up but are never analyzed. The same pricing mistakes repeat because nobody has time to review.</li>
+      <li class="med"><strong>Siloed cost data</strong>Actual costs rarely make it back to estimating. Bids are based on outdated assumptions, not today's real costs.</li>
+      <li class="med"><strong>Last-minute scrambles</strong>Proposals assembled in 48-hour rushes. Quality suffers, errors slip through, team burns out.</li>
+    </ul>
+  </div>
+
+  <div class="dept-block">
+    <div class="dept-name">Field Operations</div>
+    <ul class="ineff-list">
+      <li class="high"><strong>Paper-based reporting</strong>Daily logs filled on paper or disconnected spreadsheets. Data is days old by the time it reaches leadership.</li>
+      <li class="high"><strong>Equipment downtime</strong>Heavy equipment breaks without warning. Emergency repairs cost $5,000–$25,000/day per machine.</li>
+      <li class="med"><strong>Schedule conflicts</strong>Crews and equipment clash because scheduling is done in spreadsheets with no conflict detection.</li>
+      <li class="med"><strong>Material waste</strong>Over-ordering, theft, and damage add 8–12% to material costs on a typical project.</li>
+    </ul>
+  </div>
+
+  <div class="dept-block">
+    <div class="dept-name">Engineering & Design</div>
+    <ul class="ineff-list">
+      <li class="high"><strong>Drawing version chaos</strong>Field teams work from outdated drawings. Revisions take days to reach the crew — sometimes they don't.</li>
+      <li class="high"><strong>RFI backlogs</strong>Requests pile up. Average resolution is 7–14 days. One slow RFI can halt a crew for days.</li>
+      <li class="med"><strong>Design-reality gaps</strong>Site conditions rarely match survey data. Problems surface only after ground is broken.</li>
+      <li class="med"><strong>Manual QA/QC</strong>Inspectors walk sites and fill forms. Coverage is partial, documentation inconsistent, defects get missed.</li>
+    </ul>
+  </div>
+
+  <div class="dept-block">
+    <div class="dept-name">Procurement</div>
+    <ul class="ineff-list">
+      <li class="high"><strong>Reactive buying</strong>Materials ordered when needed, not before. Rush orders carry 15–30% premiums that quietly kill margins.</li>
+      <li class="high"><strong>No supplier performance data</strong>Same vendors used out of habit even when delivery reliability or quality has slipped.</li>
+      <li class="med"><strong>Approval bottlenecks</strong>A $500 gasket delayed 3 days can stop a million-dollar excavator.</li>
+      <li class="med"><strong>Inventory blind spots</strong>Nobody knows what's at which yard. Over-purchasing and re-purchasing are common results.</li>
+    </ul>
+  </div>
+
+  <div class="dept-block">
+    <div class="dept-name">Finance</div>
+    <ul class="ineff-list">
+      <li class="high"><strong>Slow invoicing</strong>Progress billing delayed because nobody agrees on what % of work is done. Cash flow suffers.</li>
+      <li class="high"><strong>Cost code misallocation</strong>Hours charged to wrong projects. Job costing reports are unreliable — nobody trusts the numbers.</li>
+      <li class="med"><strong>No real-time budget visibility</strong>Monthly reports mean leadership discovers a project is over budget six weeks too late.</li>
+      <li class="med"><strong>Change order disputes</strong>Clients dispute change orders because documentation is weak. The company eats costs it should have recovered.</li>
+    </ul>
+  </div>
+
+  <div class="dept-block">
+    <div class="dept-name">Safety (HSE)</div>
+    <ul class="ineff-list">
+      <li class="high"><strong>Reactive incident response</strong>Issues discovered after something goes wrong. Near-misses unreported because filing is time-consuming.</li>
+      <li class="high"><strong>Inconsistent safety culture</strong>Standards vary wildly between sites and subs. One lax PM creates massive liability.</li>
+      <li class="med"><strong>Manual compliance tracking</strong>Certs and inspection logs in spreadsheets. Expired credentials are a liability time bomb.</li>
+      <li class="med"><strong>PPE compliance gaps</strong>Workers skip gear when unsupervised. Supervisors can't be everywhere.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SECTION 3: AI SOLUTIONS -->
+<section class="section">
+  <div class="section-label">Section 03</div>
+  <h2 class="section-title">AI Solutions — Plain Language for a CEO</h2>
+  <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:20px;line-height:1.6;max-width:680px;">Think of AI as a very fast analyst that never sleeps, never forgets, and can watch dozens of things at once. It doesn't replace your people — it gives them better information, faster.</p>
+  <div class="ai-grid">
+    <div class="ai-card">
+      <div class="ai-card-head"><span class="dept-tag">Estimating</span> Bid smarter, win more</div>
+      <div class="ai-card-body"><ul>
+        <li>Reads drawings 10× faster — 3-day takeoffs become 3 hours</li>
+        <li>Learns from every bid won and lost, flags dangerous pricing patterns</li>
+        <li>Monitors live material price indexes, adjusts estimates in real time</li>
+      </ul></div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-head"><span class="dept-tag">Field Ops</span> Stop surprises cold</div>
+      <div class="ai-card-body"><ul>
+        <li>Predicts equipment breakdowns 2–4 weeks before they happen</li>
+        <li>Tracks progress automatically from cameras and drones — no forms</li>
+        <li>Optimizes crew and equipment scheduling, eliminates idle time</li>
+      </ul></div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-head"><span class="dept-tag">Engineering</span> Catch it on a screen</div>
+      <div class="ai-card-body"><ul>
+        <li>Detects design clashes before construction — avg $17K saved per clash</li>
+        <li>Prioritizes and drafts RFI responses — 14 days → 1–2 days</li>
+        <li>Drone footage analyzed for defects and deviations site-wide in hours</li>
+      </ul></div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-head"><span class="dept-tag">Procurement</span> Buy right, buy early</div>
+      <div class="ai-card-body"><ul>
+        <li>Forecasts material needs weeks ahead — eliminates rush premiums</li>
+        <li>Scores suppliers on delivery, quality, and price — data not habit</li>
+        <li>Real-time inventory across all yards — ends duplicate purchasing</li>
+      </ul></div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-head"><span class="dept-tag">Finance</span> See it before it's gone</div>
+      <div class="ai-card-body"><ul>
+        <li>Daily cost vs. budget picture — no more month-end surprises</li>
+        <li>Auto-allocates hours and materials to correct cost codes</li>
+        <li>Generates change order documentation from site data automatically</li>
+      </ul></div>
+    </div>
+    <div class="ai-card">
+      <div class="ai-card-head"><span class="dept-tag">Safety (HSE)</span> Safer, no extra headcount</div>
+      <div class="ai-card-body"><ul>
+        <li>Cameras detect missing PPE in real time, alert supervisors instantly</li>
+        <li>Identifies highest-risk locations and crews before incidents occur</li>
+        <li>Auto-tracks all certs and inspection deadlines — nothing lapses</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4: FATHER'S WISDOM -->
+<section class="section">
+  <div class="section-label">Section 04 — Primary Domain Intelligence</div>
+  <h2 class="section-title">The Expert's Objections: Voice of the Market</h2>
+  <p style="font-size:13px;color:var(--ink-3);margin-bottom:20px;line-height:1.5;">These insights come from a career civil engineer and construction expert. This is not skepticism to overcome — it is the market's actual voice. Every objection below is held by the majority of decision-makers in this industry.</p>
+
+  <div class="wisdom-block">
+    <div class="wisdom-byline">Civil Engineering Expert — Direct Field Intelligence</div>
+    <ul class="wisdom-objections">
+      <li>
+        <span class="obj-label">Focus</span>
+        <div>Don't try to solve everything at once. A contractor running seven jobs doesn't want a platform — they want relief from one specific, painful problem. Pick one phase and solve it completely. Estimating and cost control are deeply intertwined and the highest-leverage starting point.</div>
+      </li>
+      <li>
+        <span class="obj-label">TCO Risk</span>
+        <div>"Go buy seven drones, program them, and hire someone to interpret the data" — that's what an AI drone pitch sounds like to a contractor. The hardware cost, setup complexity, and new headcount required to operate it kills the ROI before the conversation is over. Any solution that requires the contractor to build new infrastructure will lose.</div>
+      </li>
+      <li>
+        <span class="obj-label">Workflow First</span>
+        <div>You need to understand how they estimate before you can improve it. "How does MassTech estimate?" is not rhetorical — it's due diligence. The workflow varies significantly between firms and must be understood at ground level before building or selling anything.</div>
+      </li>
+      <li>
+        <span class="obj-label">Optimization &gt; Revolution</span>
+        <div>Contractors are not looking for transformation. They are looking for optimization of what they already do well. The pitch is not "do it differently" — it is "do what you already do, but faster, with fewer errors, and with better information."</div>
+      </li>
+      <li>
+        <span class="obj-label">Trust Deficit</span>
+        <div>Experienced contractors have seen every software pitch for decades and watched most of them fail in the field. Skepticism is the default and it is earned. Credibility comes from demonstrating that you understand their actual workflow — not from showing a demo.</div>
+      </li>
+    </ul>
+    <div class="wisdom-quote">"I'm not sold on the whole thing. There are certain items that can be optimized — and that's what knowing what they're doing and how they're doing it."</div>
+  </div>
+</section>
+
+<!-- SECTION 5: MARKET ENTRY BLOCKERS -->
+<section class="section">
+  <div class="section-label">Section 05</div>
+  <h2 class="section-title">Market Entry Blockers & How to Counter Them</h2>
+  <table class="blocker-table">
+    <thead>
+      <tr>
+        <th style="width:22%">Blocker</th>
+        <th style="width:18%">Type</th>
+        <th style="width:60%">Counter Strategy</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Identity threat</strong><br>Engineers see themselves as the smartest person in the room. AI = challenge to that.</td>
+        <td><span class="blocker-tag tag-red">Critical</span></td>
+        <td>Never position AI as smarter. Position it as <em>beneath</em> the engineer — handling the grunt work so their expertise can operate at a higher level. "The machine does the measuring; you make the judgment calls."</td>
+      </tr>
+      <tr>
+        <td><strong>TCO / Infrastructure burden</strong><br>New hardware, new hires, new workflows.</td>
+        <td><span class="blocker-tag tag-red">Critical</span></td>
+        <td>Lead with software-only, no-hardware-required solutions first. The entry product must plug into tools they already use. Complexity is a deal killer before the sale is made.</td>
+      </tr>
+      <tr>
+        <td><strong>Workflow ignorance</strong><br>Selling a solution before understanding the problem.</td>
+        <td><span class="blocker-tag tag-red">Critical</span></td>
+        <td>Do discovery first, always. Sit with an estimator for a day before building a pitch. The firms that win in this market know the workflow better than the client does.</td>
+      </tr>
+      <tr>
+        <td><strong>Platform fatigue</strong><br>"We already have Procore/Viewpoint/Sage."</td>
+        <td><span class="blocker-tag tag-gold">High</span></td>
+        <td>Lead with integration, not replacement. "Works with what you already have" is more powerful than "replaces everything." Build integrations to dominant platforms on day one.</td>
+      </tr>
+      <tr>
+        <td><strong>ROI vagueness</strong><br>"Sounds interesting" is not a purchase decision.</td>
+        <td><span class="blocker-tag tag-gold">High</span></td>
+        <td>Anchor every conversation to a specific number. "This will cut your takeoff time from 3 days to 4 hours on a project this size." Measurable, specific, tied to their actual work — not industry averages.</td>
+      </tr>
+      <tr>
+        <td><strong>Pilot paralysis</strong><br>Willingness to try but not to commit or pay.</td>
+        <td><span class="blocker-tag tag-gold">High</span></td>
+        <td>Structure the first engagement around a single live project with defined success metrics. Not a demo — a real project with real stakes. Success converts to contract. Failure teaches both parties.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- SECTION 6: MARKET STRATEGY -->
+<section class="section">
+  <div class="section-label">Section 06</div>
+  <h2 class="section-title">Go-To-Market Strategy</h2>
+
+  <div class="strategy-wedge">
+    <h3>The Wedge: Enter Through Estimating</h3>
+    <p>Estimating is where money is won or lost before a shovel hits the ground. It is the most manual, most hated, highest-stakes phase of the project lifecycle. The estimator is usually the sharpest person at the firm — doing work that is beneath their actual intellectual value. That tension is the opening.</p>
+  </div>
+
+  <div class="pitch-block">
+    <div class="pitch-label">The Pitch That Converts (Not Just "That's Cool")</div>
+    <blockquote>"Right now, you spend 60% of your time measuring and calculating. What if you spent that 60% on the 10% of the estimate that actually determines whether you win or lose — the risk assessment, the strategy, the judgment calls? That's all you, forever. We eliminate the grunt work so you can focus on the part nobody else can do."</blockquote>
+  </div>
+
+  <h3 style="font-size:16px;font-weight:600;margin-bottom:14px;color:var(--ink);">Execution Steps</h3>
+  <ol class="steps-list">
+    <li>
+      <div class="step-body">
+        <strong>Leverage the Expert as a Living Reference</strong>
+        <p>Your father is not just an advisor — he is the proof of concept. If ADXE can earn his genuine endorsement, that story sells itself: "This skeptic with 40 years in the field said this is the first thing that actually makes sense." Build the product around his specific objections first.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-body">
+        <strong>Do Workflow Discovery at Two Target Firms</strong>
+        <p>Identify two mid-size contractors (the MassTech comparison is the right scale). Spend a day with their estimating team — not a demo, just observation. Answer three questions: What software are they using? Where does the estimate break down most? What does a bad week look like personally?</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-body">
+        <strong>Build the Minimum Credible Product Around One Workflow</strong>
+        <p>Based on discovery, identify the single step in the estimating workflow that is most painful and most automatable. Build a focused solution for that step only. Resist the urge to build the whole platform. One thing done remarkably well opens every door.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-body">
+        <strong>Pilot on a Real Project with Real Numbers</strong>
+        <p>Offer the first engagement at low or no cost in exchange for documented results. Define success metrics before the pilot starts. Specific, measurable outcomes — time saved, errors caught, dollars recovered — become the case study that drives every subsequent sale.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-body">
+        <strong>Build Integrations to Dominant Platforms Before Scaling</strong>
+        <p>Procore, Sage, Viewpoint, and Trimble are already in most firms. ADXE's solution must plug into these seamlessly. "Works with what you have" removes the biggest friction point in procurement and lets champions sell it internally without fighting their IT team.</p>
+      </div>
+    </li>
+    <li>
+      <div class="step-body">
+        <strong>Expand from Estimating → Cost Control → Full Project Intelligence</strong>
+        <p>Once estimating is owned, cost control is the natural expansion — your father identified these as intertwined. A contractor who trusts ADXE's estimating intelligence will want that intelligence to follow the project through execution. That is the upsell path with zero additional acquisition cost.</p>
+      </div>
+    </li>
+  </ol>
+</section>
+
+<!-- SECTION 7: DUE DILIGENCE QUESTIONS -->
+<section class="section">
+  <div class="section-label">Section 07</div>
+  <h2 class="section-title">Three Questions That Drive the Product Roadmap</h2>
+  <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:18px;line-height:1.6;">These must be answered through direct observation — not surveys, not demos, not assumptions.</p>
+  <div class="dd-grid">
+    <div class="dd-card">
+      <div class="dd-q-num">01</div>
+      <div class="dd-q">What software are they using today, if any?</div>
+      <div class="dd-why">Determines integration requirements and the exact workflow ADXE needs to fit into — or displace.</div>
+    </div>
+    <div class="dd-card">
+      <div class="dd-q-num">02</div>
+      <div class="dd-q">Where does the estimate break down most — takeoff, pricing, sub scope, or risk?</div>
+      <div class="dd-why">Identifies the highest-leverage point of intervention. This answer is the product spec.</div>
+    </div>
+    <div class="dd-card">
+      <div class="dd-q-num">03</div>
+      <div class="dd-q">What does a bad week in estimating look like, personally?</div>
+      <div class="dd-why">Surfaces the emotional driver — the specific frustration that motivates someone to change their workflow and buy something new.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <span class="footer-logo">ADXE Corp</span>
+  <span>Civil Works Strategy v1.0 — April 2026 — Confidential</span>
+  <span>adxecorp.com</span>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Opportunity Brief — Construction Law & Engineering</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --panel: #12161b;
+      --panel-2: #171c22;
+      --text: #e9edf1;
+      --muted: #9aa6b2;
+      --line: #26303a;
+      --accent: #d4af6a;
+      --accent-soft: rgba(212,175,106,0.12);
+      --red: #c04840;
+      --teal: #3aada0;
+      --max: 1400px;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(0,0,0,0.28);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+      background: linear-gradient(180deg, #090b0d 0%, #0d1116 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 270px minmax(0,1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky; top: 0; align-self: start; height: 100vh;
+      padding: 26px 18px; border-right: 1px solid var(--line);
+      background: rgba(9,11,13,0.9); backdrop-filter: blur(14px);
+      display: flex; flex-direction: column;
+    }
+    .brand {
+      padding: 16px;
+      background: linear-gradient(160deg, rgba(212,175,106,0.10), rgba(212,175,106,0.03));
+      border: 1px solid rgba(212,175,106,0.18); border-radius: 14px; margin-bottom: 24px;
+    }
+    .eyebrow { font-size: 10px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent); margin-bottom: 7px; font-weight: 700; }
+    .brand h1 { font-size: 17px; line-height: 1.2; margin-bottom: 6px; }
+    .brand p { color: var(--muted); font-size: 12px; line-height: 1.5; }
+    .nav-title { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); padding: 0 10px; margin-bottom: 8px; }
+    .nav { display: flex; flex-direction: column; gap: 4px; margin-bottom: 20px; }
+    .nav a {
+      padding: 9px 12px; border-radius: 10px; color: #d0dae3; font-size: 13px;
+      border: 1px solid transparent; display: flex; align-items: center; gap: 9px; transition: all 0.2s;
+    }
+    .nav a:hover { background: var(--panel); border-color: var(--line); }
+    .nav a.active { background: var(--accent-soft); border-color: rgba(212,175,106,0.20); color: #f4e4bb; }
+    .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line); flex-shrink: 0; transition: background 0.2s; }
+    .nav a.active .nav-dot { background: var(--accent); }
+    .sidebar-footer { margin-top: auto; padding: 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--panel-2); }
+    .sidebar-footer p { font-size: 11.5px; color: var(--muted); line-height: 1.55; }
+    .sidebar-footer strong { color: var(--accent); font-weight: 600; }
+
+    main { padding: 30px 30px 60px; }
+
+    .hero {
+      background: radial-gradient(circle at top left, rgba(212,175,106,0.13), transparent 40%), var(--panel);
+      border: 1px solid var(--line); border-radius: 22px; padding: 30px 32px;
+      box-shadow: var(--shadow); margin-bottom: 20px;
+    }
+    .hero-eyebrow { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--accent); font-weight: 700; margin-bottom: 12px; }
+    .hero h2 { font-size: clamp(22px, 3vw, 36px); line-height: 1.1; margin-bottom: 12px; font-weight: 700; max-width: 760px; }
+    .hero p { color: #c0ccd6; font-size: 14px; max-width: 720px; margin-bottom: 18px; line-height: 1.65; }
+    .stats-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .stat-chip { padding: 8px 14px; border-radius: 999px; background: var(--accent-soft); border: 1px solid rgba(212,175,106,0.2); color: #f1ddae; font-size: 12px; font-weight: 600; }
+
+    .section-card { background: var(--panel); border: 1px solid var(--line); border-radius: 20px; padding: 24px 26px; margin-bottom: 16px; box-shadow: var(--shadow); }
+    .section-card h3 { font-size: 20px; margin-bottom: 14px; font-weight: 700; }
+
+    .col-heads { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 8px; }
+    .col-head { font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 700; padding: 0 4px; }
+    .col-head.p { color: var(--red); }
+    .col-head.s { color: var(--teal); }
+    .col-head.b { color: var(--accent); }
+
+    .problem-list { display: flex; flex-direction: column; gap: 10px; }
+    .problem-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+    .p-cell { background: var(--panel-2); border: 1px solid var(--line); border-radius: 13px; padding: 14px 15px; font-size: 13px; line-height: 1.6; color: #c0ccd4; }
+    .p-cell .label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 4px; }
+    .p-cell .title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+    .p-cell.problem { border-left: 3px solid var(--red); }
+    .p-cell.problem .label { color: var(--red); }
+    .p-cell.solution { border-left: 3px solid var(--teal); }
+    .p-cell.solution .label { color: var(--teal); }
+    .p-cell.blocker { border-left: 3px solid var(--accent); }
+    .p-cell.blocker .label { color: var(--accent); }
+
+    .closing {
+      background: radial-gradient(circle at bottom right, rgba(212,175,106,0.08), transparent 50%), var(--panel);
+      border: 1px solid rgba(212,175,106,0.22); border-radius: 20px; padding: 26px 28px; margin-bottom: 16px;
+    }
+    .closing h3 { font-size: 20px; margin-bottom: 12px; font-weight: 700; }
+    .closing > p { font-size: 13.5px; color: #b8c4cc; line-height: 1.7; max-width: 820px; }
+    .closing > p + p { margin-top: 10px; }
+    .closing strong { color: #f1ddae; font-weight: 600; }
+    .action-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 16px; }
+    .action-cell { background: var(--panel-2); border: 1px solid var(--line); border-radius: 13px; padding: 14px 16px; }
+    .action-cell .a-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 700; color: var(--accent); margin-bottom: 6px; }
+    .action-cell .a-head { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .action-cell p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    .footer { text-align: center; color: var(--muted); font-size: 11px; margin-top: 8px; padding-top: 18px; border-top: 1px solid var(--line); }
+
+    @media (max-width: 860px) {
+      .shell { grid-template-columns: 1fr; }
+      .sidebar { position: static; height: auto; }
+      main { padding: 18px 14px 40px; }
+      .problem-row, .col-heads, .action-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="eyebrow">Practice Brief · 2026</div>
+      <h1>AI for Construction Law &amp; Engineering</h1>
+      <p>Partner-level. No tech required. Written for decision-makers.</p>
+    </div>
+    <div class="nav-title">Departments</div>
+    <nav class="nav">
+      <a href="#litigation" class="active"><span class="nav-dot"></span>Litigation &amp; Disputes</a>
+      <a href="#contracts"><span class="nav-dot"></span>Contract Review</a>
+      <a href="#claims"><span class="nav-dot"></span>Claims &amp; Change Orders</a>
+      <a href="#knowledge"><span class="nav-dot"></span>Research &amp; Knowledge</a>
+      <a href="#operations"><span class="nav-dot"></span>Operations &amp; BD</a>
+      <a href="#decision"><span class="nav-dot"></span>The Decision</a>
+    </nav>
+    <div class="sidebar-footer">
+      <p>Each row shows the <strong>problem</strong> you already feel, the <strong>AI fix</strong> in plain English, and the <strong>honest blocker</strong> standing in the way.</p>
+    </div>
+  </aside>
+
+  <main>
+    <div class="hero">
+      <div class="hero-eyebrow">ADXE — Applied Design &amp; Execution</div>
+      <h2>Ten problems slowing down your firm — and what AI does about each one.</h2>
+      <p>Written for the partner who makes decisions, not the associate who configures software. No jargon. These are problems you already know you have.</p>
+      <div class="stats-row">
+        <span class="stat-chip">40% of billable time is automatable today</span>
+        <span class="stat-chip">95% of AI pilots fail to scale</span>
+        <span class="stat-chip">Only 1% of firms are AI-mature</span>
+      </div>
+    </div>
+
+    <div class="section-card" id="litigation">
+      <div class="eyebrow">Department 01</div>
+      <h3>Litigation &amp; Dispute Resolution</h3>
+      <div class="col-heads"><span class="col-head p">The Problem</span><span class="col-head s">What AI Does</span><span class="col-head b">The Blocker</span></div>
+      <div class="problem-list">
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">Document review eats associate hours</div>50,000–200,000 docs per dispute. Associates spend weeks tagging and summarizing at rates that lose pitches to flat-fee competitors.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">Reads the whole binder overnight</div>AI flags relevant docs, summarizes facts, and surfaces contradictions between daily logs and claim narratives. Three weeks becomes three days.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">Client data security anxiety</div>Partners worry about uploading client files. Fix: private deployment — AI runs inside your firewall. One IT decision, not a tech overhaul.</div>
+        </div>
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">Timeline reconstruction is manual</div>Proving delay claims means rebuilding a project timeline from scattered emails and logs — done in spreadsheets, by hand, at partner rates.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">Builds the chronology from the record</div>AI extracts every date-stamped event, maps it to contract milestones, and flags gaps a human misses at document 8,000.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">"Our files are too messy"</div>Most project records arrive as chaotic PDF dumps. AI handles exactly this. The blocker is perception, not reality.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="contracts">
+      <div class="eyebrow">Department 02</div>
+      <h3>Contract Drafting &amp; Review</h3>
+      <div class="col-heads"><span class="col-head p">The Problem</span><span class="col-head s">What AI Does</span><span class="col-head b">The Blocker</span></div>
+      <div class="problem-list">
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">Inconsistent clause language across projects</div>Different associates draft different versions of the same clause. Partners spend hours on quality control that should be standardized.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">Checks every contract against your playbook</div>AI reviews incoming contracts against your firm's preferred positions and drafts your redlines. Partners review exceptions, not every line.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">The playbook doesn't exist in writing</div>Preferred positions live in senior partners' heads. AI is the forcing function that finally makes someone document them. That's a management step, not a tech step.</div>
+        </div>
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">Subcontract flow-down review is error-prone</div>Florida law requires careful flow-down of prime contract terms. Getting indemnification wrong creates risk that surfaces years later.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">Cross-references prime and sub contracts</div>Upload both. AI identifies every term that should flow down, checks whether it did, flags gaps, and drafts correction language. Two hours to fifteen minutes.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">Trust in AI accuracy on legal language</div>AI here is a first-pass tool — the partner still signs off. You're eliminating the tedious read, not the judgment call.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="claims">
+      <div class="eyebrow">Department 03</div>
+      <h3>Claims &amp; Change Orders</h3>
+      <div class="col-heads"><span class="col-head p">The Problem</span><span class="col-head s">What AI Does</span><span class="col-head b">The Blocker</span></div>
+      <div class="problem-list">
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">Nobody documented it in real time</div>Verbal instructions, changed conditions, and owner-directed acceleration go unrecorded. When the claim comes, the record is thin and reconstruction is expensive.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">AI-assisted daily field documentation</div>Simple mobile tools prompt supers to capture the right information daily. AI structures the input into legally defensible contemporaneous records. Prevention beats reconstruction.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">This serves clients — so who pays?</div>Best path: bundle it into a project monitoring retainer. Anyone who has survived one bad claim will pay for this immediately.</div>
+        </div>
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">Damages calculations cost too much</div>Pricing a delay or disruption claim requires experts at $400–600/hour for work that is largely data processing, not judgment.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">AI handles the data processing layer</div>AI ingests payroll records, equipment logs, and schedule updates and produces a preliminary damages model your expert reviews — not builds from scratch. Cut expert hours 40–60%.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">Expert resistance &amp; Daubert exposure</div>The expert's role shifts from data processor to methodology validator. The audit trail is actually cleaner. Bar guidance is still catching up on this one.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="knowledge">
+      <div class="eyebrow">Department 04</div>
+      <h3>Research &amp; Knowledge Management</h3>
+      <div class="col-heads"><span class="col-head p">The Problem</span><span class="col-head s">What AI Does</span><span class="col-head b">The Blocker</span></div>
+      <div class="problem-list">
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">Institutional knowledge walks out the door</div>Senior attorneys carry years of experience — preferred approaches, judicial tendencies, lessons from past cases — in their heads. When they leave, it goes with them.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">AI-searchable firm knowledge base</div>Past briefs, memos, and analyses are indexed. A junior associate can ask what was argued in the last delay claim before a specific judge and get the answer in seconds.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">Files aren't organized and nobody wants to</div>AI handles messy files, but someone has to connect it to the firm's document system. The technical piece is easy. Getting partners to agree on a system is harder.</div>
+        </div>
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">Florida construction law research is a time sink</div>Chapter 713, §558 notice requirements, prompt payment statutes — these change and interact. Associates spend hours confirming what they think they know.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">Legal research assistant trained on Florida law</div>Lexis+ AI and Thomson Reuters CoCounsel draft research memos in minutes from verified sources. The attorney validates. Research time drops 50–70% on standard questions.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">Fear of hallucinated case citations</div>Addressed in purpose-built legal AI tools that cite only verified sources. The key: use legal-specific AI, not general AI. Most firms don't know the distinction exists.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-card" id="operations">
+      <div class="eyebrow">Department 05</div>
+      <h3>Operations &amp; Business Development</h3>
+      <div class="col-heads"><span class="col-head p">The Problem</span><span class="col-head s">What AI Does</span><span class="col-head b">The Blocker</span></div>
+      <div class="problem-list">
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">Client intake is slow and inconsistent</div>Conflicts checks, engagement letters, retainer collection — handled differently by every partner, sometimes sloppily, with malpractice exposure under deadline pressure.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">Automated intake workflow</div>Client fills a structured form. Conflicts check runs automatically. Engagement letter is drafted from the intake data. Partner approves and signs. Admin work disappears.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">Practice management software fragmentation</div>Clio, MyCase, legacy systems — none connected to AI out of the box. Integration is a one-time setup, not a major IT project. Usually two to four weeks once someone decides.</div>
+        </div>
+        <div class="problem-row">
+          <div class="p-cell problem"><div class="label">Problem</div><div class="title">RFP responses require senior time they shouldn't</div>Nobody else knows the firm's relevant experience well enough to write it, so partners spend a day on proposals that should take an hour.</div>
+          <div class="p-cell solution"><div class="label">AI Fix</div><div class="title">AI proposal drafting from firm history</div>AI trained on past proposals and matter descriptions drafts the RFP response. Partner reviews and personalizes. A day becomes an hour, and quality goes up.</div>
+          <div class="p-cell blocker"><div class="label">Blocker</div><div class="title">No single source of truth for firm experience</div>If matter history isn't documented anywhere, AI has nothing to draw from. Fixing the knowledge management problem once fixes intake, proposals, and research simultaneously.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="closing" id="decision">
+      <div class="eyebrow">For the Decision-Maker</div>
+      <h3>What to do with this</h3>
+      <p>None of these ten problems require you to understand how AI works. You already know what it costs when a document review takes three weeks instead of three days, or when a junior attorney rebuilds a timeline from scratch that someone built two years ago. These are billing problems, client relationship problems, and competitive problems — and they have engineering solutions that don't require replacing anything you currently run.</p>
+      <p><strong>The Florida Bar is moving too.</strong> Competence under Rule 4-1.1 is increasingly interpreted to include awareness of tools available to you. Ignoring AI is not a neutral position — it is a risk management exposure.</p>
+      <div class="action-grid">
+        <div class="action-cell">
+          <div class="a-label">Start Here</div>
+          <div class="a-head">Pick one problem in litigation or contracts</div>
+          <p>Highest-ROI first move: AI document review or contract playbook comparison. One pilot, one matter, one associate. One vendor conversation to start.</p>
+        </div>
+        <div class="action-cell">
+          <div class="a-label">Honest Risk Assessment</div>
+          <div class="a-head">Technology risk is manageable</div>
+          <p>In every case above, AI is a first-pass tool — the partner still reviews. You're eliminating tedious work, not judgment. The risk of inaction is not manageable.</p>
+        </div>
+        <div class="action-cell">
+          <div class="a-label">The Real Question</div>
+          <div class="a-head">Before or after your competitors?</div>
+          <p>64% of professional service firms are deploying AI. 95% of those deployments aren't working. The window to move with advantage — not catch-up — is closing.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">ADXE — Applied Design &amp; Execution · hello@adxecorp.com · Construction Law &amp; Engineering Practice Brief 2026</div>
+  </main>
+</div>
+
+<script>
+  const links = document.querySelectorAll('.nav a');
+  const sections = document.querySelectorAll('main [id]');
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (!href?.startsWith('#')) return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      links.forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
+      }
+    });
+  }, { rootMargin: '-20% 0px -65% 0px', threshold: 0.1 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>

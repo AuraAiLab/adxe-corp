@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rick Espino — Legacy & Civil Engineering Strategy</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --panel: #12161b;
+      --panel-2: #171c22;
+      --text: #e9edf1;
+      --muted: #9aa6b2;
+      --line: #26303a;
+      --accent: #d4af6a;
+      --accent-soft: rgba(212, 175, 106, 0.12);
+      --max: 1440px;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(0,0,0,0.28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #090b0d 0%, #0d1116 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 290px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      padding: 28px 20px 24px;
+      border-right: 1px solid var(--line);
+      background: rgba(9, 11, 13, 0.88);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      margin-bottom: 26px;
+      padding: 16px 16px 18px;
+      background: linear-gradient(180deg, rgba(212,175,106,0.10), rgba(212,175,106,0.04));
+      border: 1px solid rgba(212,175,106,0.18);
+      border-radius: 16px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .brand h1 {
+      font-size: 20px;
+      line-height: 1.15;
+      margin: 0 0 8px;
+    }
+
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-group {
+      margin-top: 20px;
+    }
+
+    .nav-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin: 0 0 10px;
+      padding: 0 10px;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .nav a {
+      padding: 11px 12px;
+      border-radius: 12px;
+      color: #d8e0e7;
+      font-size: 14px;
+      border: 1px solid transparent;
+    }
+
+    .nav a:hover {
+      background: var(--panel);
+      border-color: var(--line);
+    }
+
+    .nav a.active {
+      background: var(--accent-soft);
+      border-color: rgba(212,175,106,0.20);
+      color: #f4e4bb;
+    }
+
+    .content {
+      padding: 34px 34px 60px;
+    }
+
+    .hero {
+      background: radial-gradient(circle at top left, rgba(212,175,106,0.14), transparent 38%), var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      margin-bottom: 26px;
+    }
+
+    .hero h2 {
+      font-size: clamp(30px, 5vw, 52px);
+      line-height: 1.02;
+      margin: 0 0 16px;
+      max-width: 900px;
+    }
+
+    .hero p {
+      max-width: 900px;
+      font-size: 18px;
+      color: #cad4dd;
+      margin: 0 0 22px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(212,175,106,0.18);
+      color: #f1ddae;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .section-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 28px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-card h3 {
+      margin: 0 0 12px;
+      font-size: 28px;
+    }
+
+    .section-card > p.lead {
+      margin: 0 0 20px;
+      color: #c5d0d9;
+      font-size: 16px;
+      max-width: 920px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .panel {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    .panel h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .panel p {
+      margin: 0;
+      color: #c0cad3;
+      font-size: 15px;
+    }
+
+    .bullets {
+      margin: 12px 0 0;
+      padding-left: 18px;
+      color: #d9e1e7;
+    }
+
+    .bullets li { margin-bottom: 8px; }
+
+    details {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 0;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 16px 18px;
+      font-size: 17px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      transition: background 0.22s ease, border-color 0.22s ease, transform 0.22s ease;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    .summary-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+    .summary-bubble {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent-soft);
+      border: 1px solid rgba(212,175,106,0.18);
+      color: #f2ddb0;
+      font-size: 14px;
+      font-weight: 800;
+      flex: 0 0 auto;
+    }
+
+    .summary-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .summary-title {
+      font-size: 17px;
+      color: #f2f6fa;
+      line-height: 1.2;
+    }
+
+    .summary-subtitle {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+      line-height: 1.3;
+    }
+
+    .summary-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex: 0 0 auto;
+    }
+
+    .summary-caret {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #dce4ea;
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    details:hover summary {
+      background: rgba(255,255,255,0.02);
+    }
+
+    details:hover .summary-caret {
+      border-color: rgba(212,175,106,0.22);
+      background: var(--accent-soft);
+      color: #f2ddb0;
+    }
+
+    details[open] .summary-caret {
+      transform: rotate(45deg);
+      border-color: rgba(212,175,106,0.22);
+      background: var(--accent-soft);
+      color: #f2ddb0;
+    }
+
+    summary .meta {
+      font-size: 12px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+    }
+
+    .detail-body {
+      padding: 0 18px 18px;
+      color: #d2dbe2;
+    }
+
+    .detail-body p:first-child { margin-top: 0; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .mini-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .mini-item {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--line);
+    }
+
+    .mini-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: #f2f6fa;
+    }
+
+    .mini-item span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(212,175,106,0.08);
+      border: 1px solid rgba(212,175,106,0.16);
+      color: #edd9a8;
+      font-size: 14px;
+    }
+
+    .footer {
+      margin-top: 26px;
+      padding: 18px 4px 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1020px) {
+      .shell {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        position: relative;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .content {
+        padding: 22px 16px 40px;
+      }
+      .hero, .section-card { padding: 22px; }
+      .grid, .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="eyebrow">Legacy + Strategy</div>
+        <h1>Rick Espino</h1>
+        <p>Memoir, family archive, engineering wisdom, and civil-market strategy in one working page.</p>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-title">Overview</div>
+        <nav class="nav">
+          <a href="#overview">Project Overview</a>
+          <a href="#civil">Civil Engineering Solutions</a>
+          <a href="#memoir">Memoir & Legacy</a>
+          <a href="#combined">Combined Legacy Program</a>
+          <a href="#questions">Interview Questions</a>
+          <a href="#public-record">Public Record & Career Trail</a>
+        </nav>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-title">Use</div>
+        <nav class="nav">
+          <a href="#civil-needs">What We Need From Him</a>
+          <a href="#civil-offers">What We Can Build</a>
+          <a href="#family-memory">What To Capture For Family</a>
+          <a href="#film-book">Video + Book Format</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="hero" id="overview">
+        <div class="eyebrow">Executive Overview</div>
+        <h2>Preserve the man, document the legacy, and turn his judgment into a foundation for civil-market solutions.</h2>
+        <p>This page separates the work into two main tracks — <strong>memoir / family legacy</strong> and <strong>civil engineering advisory / solution development</strong> — then unites them in a third track where the personal legacy and the business strategy strengthen each other.</p>
+        <div class="chips">
+          <div class="chip">Video-first oral history</div>
+          <div class="chip">Family archive</div>
+          <div class="chip">Civil leadership wisdom</div>
+          <div class="chip">Industry advisory</div>
+          <div class="chip">Product shaping for ADXE</div>
+        </div>
+      </section>
+
+      <section class="section-card" id="civil">
+        <div class="eyebrow">Track One</div>
+        <h3>Civil engineering solutions & advisory</h3>
+        <p class="lead">This track is about using Rick’s judgment, experience, and industry credibility to help shape practical solutions for civil engineering and heavy construction teams. He should not be used as an AI pitchman. He should be used as an industry translator, standards filter, and advisory authority.</p>
+
+        <div class="two-col" id="civil-needs">
+          <div class="panel">
+            <h4>What we need from him</h4>
+            <ul class="bullets">
+              <li>His honest view of where firms lose time, money, trust, and control.</li>
+              <li>What senior leaders actually care about versus what vendors think they care about.</li>
+              <li>Where documentation breaks down across projects, claims, RFIs, submittals, and executive reporting.</li>
+              <li>What would feel practical and respectable to a civil firm instead of gimmicky.</li>
+              <li>Feedback on proposed features, workflows, dashboards, and knowledge systems.</li>
+              <li>Language that sounds right to real principals, builders, executives, and engineers.</li>
+            </ul>
+          </div>
+          <div class="panel" id="civil-offers">
+            <h4>What we can build from it</h4>
+            <ul class="bullets">
+              <li><strong>Civil Knowledge System</strong> — answers over specs, drawings, RFIs, submittals, contracts, and correspondence.</li>
+              <li><strong>Executive Project Pulse</strong> — weekly risk, change-order, delay, and commitment visibility for leaders.</li>
+              <li><strong>Institutional Knowledge Capture</strong> — preserve senior knowledge before it leaves the firm.</li>
+              <li><strong>Documentation & Dispute Readiness</strong> — structure project records so firms are less exposed and more organized.</li>
+              <li><strong>Operational Workflow Tools</strong> — meeting capture, issue logging, commitment tracking, and structured project memory.</li>
+            </ul>
+          </div>
+        </div>
+
+        <details open>
+          <summary>
+            <div class="summary-left">
+              <span class="summary-bubble">01</span>
+              <span class="summary-text">
+                <span class="summary-title">How this should work</span>
+                <span class="summary-subtitle">Use Rick as an industry advisor, translator, and standards filter.</span>
+              </span>
+            </div>
+            <div class="summary-right">
+              <span class="meta">Advisory model</span>
+              <span class="summary-caret">+</span>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <p>Rick’s best role is to evaluate, refine, and reality-check ideas. He can help answer: Would a serious firm buy this? Who owns this problem? What would feel risky? What would make this feel useful? What part of this is real, and what part is just technology excitement?</p>
+            <p>The goal is to use his lived understanding of civil engineering and heavy construction to shape products that are grounded in actual operating pain rather than abstract AI concepts.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <div class="summary-left">
+              <span class="summary-bubble">02</span>
+              <span class="summary-text">
+                <span class="summary-title">What this track should produce</span>
+                <span class="summary-subtitle">Turn his insight into usable civil-market strategy and offers.</span>
+              </span>
+            </div>
+            <div class="summary-right">
+              <span class="meta">Outputs</span>
+              <span class="summary-caret">+</span>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <ul class="bullets">
+              <li>A civil-industry pain map.</li>
+              <li>A list of high-trust use cases ADXE can actually pursue.</li>
+              <li>A vocabulary guide for positioning solutions to civil firms.</li>
+              <li>A narrow offer stack for pilot engagements.</li>
+              <li>An advisory framework for ongoing feature review with Rick.</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <section class="section-card" id="memoir">
+        <div class="eyebrow">Track Two</div>
+        <h3>Memoir, family archive & legacy preservation</h3>
+        <p class="lead">This track is about preserving the full human story: Cuba, immigration, struggle, rise, family, sports, fatherhood, leadership, sacrifice, love, reputation, and the values that made him such a respected and adored man.</p>
+
+        <div class="grid" id="family-memory">
+          <div class="panel">
+            <h4>The personal story to preserve</h4>
+            <ul class="bullets">
+              <li>Leaving Cuba during that era of upheaval and starting over in a new country.</li>
+              <li>The young-striver years: fear, ambition, discipline, adaptation, and grit.</li>
+              <li>The emotional and practical sacrifices required to build a life and career from scratch.</li>
+              <li>What made him admired not only as a businessman and engineer, but as a man.</li>
+              <li>His sense of responsibility to family, friends, and the younger people he helped.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>The family story to preserve</h4>
+            <ul class="bullets">
+              <li>Fatherhood, marriage, family traditions, sports, and home life.</li>
+              <li>How he supported and shaped the people around him.</li>
+              <li>The emotional side of success: what he was proud of, what he carried, and what he gave.</li>
+              <li>Shared family legacy, including his Hall of Fame connection with Armando de Moya.</li>
+              <li>What future generations should know about him in his own voice.</li>
+            </ul>
+          </div>
+        </div>
+
+        <details open id="film-book">
+          <summary>
+            <div class="summary-left">
+              <span class="summary-bubble">03</span>
+              <span class="summary-text">
+                <span class="summary-title">Recommended format: video first, book second</span>
+                <span class="summary-subtitle">Capture his warmth and voice first, then build the written legacy from it.</span>
+              </span>
+            </div>
+            <div class="summary-right">
+              <span class="meta">Format</span>
+              <span class="summary-caret">+</span>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <p>Start with filmed oral-history interviews. Video captures warmth, timing, emotion, pride, humor, and presence. From that, create a short legacy film, a family archive, a written memoir or legacy booklet, and a searchable transcript archive.</p>
+            <div class="mini-list">
+              <div class="mini-item"><strong>Primary medium</strong><span>Long-form video interviews</span></div>
+              <div class="mini-item"><strong>Family artifact</strong><span>Legacy film + private archive</span></div>
+              <div class="mini-item"><strong>Written output</strong><span>Short memoir booklet or expanded oral-history book</span></div>
+              <div class="mini-item"><strong>Long-term asset</strong><span>Indexed transcript and quote library</span></div>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <div class="summary-left">
+              <span class="summary-bubble">04</span>
+              <span class="summary-text">
+                <span class="summary-title">What this track should produce</span>
+                <span class="summary-subtitle">Create a film, archive, and written memoir that preserve his legacy fully.</span>
+              </span>
+            </div>
+            <div class="summary-right">
+              <span class="meta">Outputs</span>
+              <span class="summary-caret">+</span>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <ul class="bullets">
+              <li>A filmed life-story interview series.</li>
+              <li>A family legacy archive with photos, timeline, quotes, and stories.</li>
+              <li>A memoir booklet or larger oral-history manuscript.</li>
+              <li>A legacy piece focused on values, family, and impact.</li>
+              <li>A preserved voice for future generations.</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <section class="section-card" id="combined">
+        <div class="eyebrow">Track Three</div>
+        <h3>Where the two tracks collide</h3>
+        <p class="lead">The combined project is where the memoir and the business strategy meet. The point is not to commercialize his life. The point is to preserve his life fully and allow the professional wisdom inside it to inform something useful for the next generation.</p>
+
+        <div class="panel">
+          <h4>Combined project statement</h4>
+          <p>Preserve Rick Espino’s life, values, stories, and hard-won judgment in a way that honors his family, records his contribution to the profession, and creates a grounded foundation for building practical systems for civil engineering firms.</p>
+        </div>
+
+        <div class="grid" style="margin-top: 16px;">
+          <div class="panel">
+            <h4>Personal gain</h4>
+            <p>He gets to see, hear, and feel the full weight of what he built — not just in concrete and steel, but in family, trust, mentorship, and love.</p>
+          </div>
+          <div class="panel">
+            <h4>Professional gain</h4>
+            <p>You gain a real industry lens for shaping ADXE offerings around information friction, operational visibility, documentation, and institutional knowledge.</p>
+          </div>
+        </div>
+
+        <div class="note">Best guiding principle: start with preservation and respect. Let the business value come out of the wisdom naturally.</div>
+      </section>
+
+      <section class="section-card" id="questions">
+        <div class="eyebrow">Interview Framework</div>
+        <h3>Question areas to cover</h3>
+        <p class="lead">These are not every possible question. They are the high-level categories that should guide the interviews.</p>
+
+        <details open>
+          <summary>
+            <div class="summary-left">
+              <span class="summary-bubble">05</span>
+              <span class="summary-text">
+                <span class="summary-title">Personal / memoir questions</span>
+                <span class="summary-subtitle">Early life, Cuba, immigration, struggle, pride, and identity.</span>
+              </span>
+            </div>
+            <div class="summary-right">
+              <span class="meta">Life story</span>
+              <span class="summary-caret">+</span>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <ul class="bullets">
+              <li>What do you remember most clearly about Cuba and leaving it?</li>
+              <li>What was hardest about starting over?</li>
+              <li>What gave you the drive to keep going?</li>
+              <li>What parts of your life make you proudest beyond work?</li>
+              <li>What do you want your children and grandchildren to understand about your journey?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <div class="summary-left">
+              <span class="summary-bubble">06</span>
+              <span class="summary-text">
+                <span class="summary-title">Family / values questions</span>
+                <span class="summary-subtitle">Fatherhood, home life, loyalty, discipline, and what he stood for.</span>
+              </span>
+            </div>
+            <div class="summary-right">
+              <span class="meta">Character</span>
+              <span class="summary-caret">+</span>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <ul class="bullets">
+              <li>What did family mean to you?</li>
+              <li>What values mattered most in your home?</li>
+              <li>What did sports, competition, or discipline teach you?</li>
+              <li>How did you try to show up for your children?</li>
+              <li>What do you hope the family carries forward from you?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <div class="summary-left">
+              <span class="summary-bubble">07</span>
+              <span class="summary-text">
+                <span class="summary-title">Professional / engineering questions</span>
+                <span class="summary-subtitle">Trust, judgment, leadership, and what younger engineers need to know.</span>
+              </span>
+            </div>
+            <div class="summary-right">
+              <span class="meta">Industry wisdom</span>
+              <span class="summary-caret">+</span>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <ul class="bullets">
+              <li>How did you get into civil engineering?</li>
+              <li>What separates a trustworthy engineer or builder from an untrustworthy one?</li>
+              <li>What do younger engineers misunderstand early in their careers?</li>
+              <li>Where do projects usually begin to go wrong?</li>
+              <li>What qualities made people respect you in the industry?</li>
+            </ul>
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <div class="summary-left">
+              <span class="summary-bubble">08</span>
+              <span class="summary-text">
+                <span class="summary-title">Advisory / solution-shaping questions</span>
+                <span class="summary-subtitle">Use his judgment to pressure-test what ADXE should build for civil firms.</span>
+              </span>
+            </div>
+            <div class="summary-right">
+              <span class="meta">ADXE</span>
+              <span class="summary-caret">+</span>
+            </div>
+          </summary>
+          <div class="detail-body">
+            <ul class="bullets">
+              <li>What kind of tool would a serious civil firm actually respect?</li>
+              <li>Where is information most broken across a project lifecycle?</li>
+              <li>What would executives want summarized faster?</li>
+              <li>What feels like real help versus shiny nonsense?</li>
+              <li>What feature ideas sound strong, and which ones sound weak?</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+
+      <section class="section-card" id="public-record">
+        <div class="eyebrow">Public Record</div>
+        <h3>Public career trail to save into the archive</h3>
+        <p class="lead">This section is for the publicly documented career backbone. It should be expanded later with family materials, résumés, awards, photos, and project records.</p>
+
+        <div class="grid">
+          <div class="panel">
+            <h4>Documented roles & associations</h4>
+            <ul class="bullets">
+              <li>President / senior leadership roles with Recchi America and Condotte America.</li>
+              <li>FDOT Dispute Review Board service.</li>
+              <li>Miami-Dade Expressway Authority board service.</li>
+              <li>Florida Transportation Builders’ Association Hall of Fame induction.</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h4>Documented professional profile</h4>
+            <ul class="bullets">
+              <li>Civil engineering education and licensure.</li>
+              <li>Heavy-civil and transportation leadership across multiple states.</li>
+              <li>Billions of dollars in East Coast construction work under executive leadership.</li>
+              <li>Industry reputation for leadership, service, and mentorship.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note">Use this section as the basis for a future detailed timeline: companies, project categories, major roles, board service, awards, and key public articles.</div>
+      </section>
+
+      <div class="footer">
+        Working page for legacy preservation, memoir development, civil engineering solution strategy, and advisory planning.
+      </div>
+    </main>
+  </div>
+  <script>
+    const links = document.querySelectorAll('.nav a');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (!href || !href.startsWith('#')) return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        links.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+      });
+    });
+
+    const sections = document.querySelectorAll('main [id]');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          links.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -65% 0px', threshold: 0.1 });
+
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

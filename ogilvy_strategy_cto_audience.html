@@ -1,0 +1,242 @@
+
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  .wrap { padding:2rem 0; font-family:var(--font-sans); }
+  .eyebrow {
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--color-text-tertiary);
+    margin-bottom:.5rem;
+  }
+  .hero-head {
+    font-size:26px;
+    font-weight:500;
+    color:var(--color-text-primary);
+    line-height:1.25;
+    margin-bottom:.5rem;
+  }
+  .hero-sub {
+    font-size:15px;
+    color:var(--color-text-secondary);
+    line-height:1.6;
+    max-width:560px;
+    margin-bottom:1.5rem;
+  }
+  .divider { height:.5px; background:var(--color-border-tertiary); margin:1.75rem 0; }
+  .section-title {
+    font-size:12px;
+    font-weight:500;
+    letter-spacing:.07em;
+    text-transform:uppercase;
+    color:var(--color-text-tertiary);
+    margin-bottom:.875rem;
+  }
+  .grid { display:grid; gap:10px; }
+  .g2 { grid-template-columns:1fr 1fr; }
+  .g3 { grid-template-columns:1fr 1fr 1fr; }
+  .card {
+    background:var(--color-background-primary);
+    border:0.5px solid var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:.875rem 1rem;
+  }
+  .card-title { font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:.3rem; }
+  .card-body { font-size:12px; color:var(--color-text-secondary); line-height:1.55; }
+  .pill {
+    display:inline-block;
+    font-size:11px;
+    font-weight:500;
+    padding:2px 10px;
+    border-radius:999px;
+    margin-bottom:.6rem;
+  }
+  .pill-blue { background:#E6F1FB; color:#185FA5; }
+  .pill-purple { background:#EEEDFE; color:#3C3489; }
+  .pill-teal { background:#E1F5EE; color:#0F6E56; }
+  .pill-amber { background:#FAEEDA; color:#854F0B; }
+  .pill-gray { background:var(--color-background-secondary); color:var(--color-text-secondary); }
+  @media (prefers-color-scheme: dark) {
+    .pill-blue { background:#042C53; color:#B5D4F4; }
+    .pill-purple { background:#26215C; color:#CECBF6; }
+    .pill-teal { background:#04342C; color:#9FE1CB; }
+    .pill-amber { background:#412402; color:#FAC775; }
+  }
+  .big-quote {
+    font-size:18px;
+    font-weight:500;
+    color:var(--color-text-primary);
+    line-height:1.45;
+    border-left:3px solid #378ADD;
+    padding-left:1.125rem;
+    margin:1.25rem 0;
+  }
+  .channel-row {
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    padding:.75rem 0;
+    border-bottom:.5px solid var(--color-border-tertiary);
+  }
+  .channel-row:last-child { border-bottom:none; }
+  .ch-label {
+    font-size:12px;
+    font-weight:500;
+    min-width:110px;
+    color:var(--color-text-primary);
+    padding-top:1px;
+  }
+  .ch-body { font-size:12px; color:var(--color-text-secondary); line-height:1.55; flex:1; }
+  .metric-row {
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .metric-block {
+    flex:1;
+    min-width:120px;
+    background:var(--color-background-secondary);
+    border-radius:var(--border-radius-md);
+    padding:.75rem 1rem;
+  }
+  .metric-num { font-size:20px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px; }
+  .metric-label { font-size:11px; color:var(--color-text-secondary); }
+  .ogilvy-step {
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    padding:.75rem 0;
+    border-bottom:.5px solid var(--color-border-tertiary);
+  }
+  .ogilvy-step:last-child { border-bottom:none; }
+  .step-num {
+    font-size:18px;
+    font-weight:500;
+    color:var(--color-text-tertiary);
+    min-width:28px;
+  }
+  .step-content {}
+  .step-name { font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:.25rem; }
+  .step-detail { font-size:12px; color:var(--color-text-secondary); line-height:1.55; }
+</style>
+
+<div class="wrap">
+  <h2 class="sr-only">Ogilvy-method AI marketing strategy for CTO audience</h2>
+  
+  <div class="eyebrow">Output 1 — Technical Audience</div>
+  <div class="hero-head">Built for the engineers who have to make it actually work.</div>
+  <div class="hero-sub">An Ogilvy-method marketing strategy that meets CTOs and technical leads at the architecture layer — not the pitch deck layer.</div>
+
+  <div class="big-quote">"You can't persuade an engineer with a brochure. You earn their trust by solving the problem they haven't been able to articulate yet."</div>
+
+  <div class="section-title">The Ogilvy Framework — applied to the AI enterprise sale</div>
+  <div class="card" style="margin-bottom:10px;">
+    <div class="ogilvy-step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-name">Research the consumer (the CTO's real problem)</div>
+        <div class="step-detail">The CTO's real fear isn't AI not working — it's AI working in demos and failing in production. They've seen 95% of pilots die on contact with legacy infrastructure. The insight: the gap is orchestration, not intelligence. Message to engineers: "We solve the integration layer you've been duct-taping for 18 months."</div>
+      </div>
+    </div>
+    <div class="ogilvy-step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-name">The Big Idea (the promise that earns trust)</div>
+        <div class="step-detail">CTOs respond to specificity, not vision. The big idea is a proof claim: <em>"Production-ready AI in your stack — not a new stack."</em> It speaks directly to integration anxiety, data sovereignty fears, and the dread of ripping out working systems.</div>
+      </div>
+    </div>
+    <div class="ogilvy-step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-name">Position against the real competitor (inaction)</div>
+        <div class="step-detail">The CTO's competitor isn't another vendor — it's "we'll wait and see." Ogilvy said: "The consumer isn't a moron, she's your wife." Treat the CTO like the smartest engineer in the room. Acknowledge what's hard. Lead with what you've already solved.</div>
+      </div>
+    </div>
+    <div class="ogilvy-step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <div class="step-name">Proof points over promises</div>
+        <div class="step-detail">Ogilvy believed in specificity as the currency of credibility. Every claim needs a number. "Reduces integration time" is weak. "Connects to SAP, Salesforce, and ServiceNow in under 14 days with zero-rip-and-replace" is a headline that a CTO will remember and share.</div>
+      </div>
+    </div>
+    <div class="ogilvy-step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <div class="step-name">The long-form play (give them the architecture)</div>
+        <div class="step-detail">Ogilvy believed in long copy when the product is complex. Engineers don't respond to taglines — they respond to architecture diagrams, benchmark results, and honest trade-off documentation. Give them the white paper, the GitHub repo, the reference architecture. Don't sell. Educate.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Solution positioning — mapped to blockers</div>
+  <div class="grid g2">
+    <div class="card">
+      <span class="pill pill-blue">Blocker → Solve</span>
+      <div class="card-title">Data fragmentation</div>
+      <div class="card-body">Lead with integration-first architecture. Show how the orchestration layer reads fragmented data without migration. Use the message: "Store everything, connect it, let the models do the cleaning."</div>
+    </div>
+    <div class="card">
+      <span class="pill pill-purple">Blocker → Solve</span>
+      <div class="card-title">Security & compliance friction</div>
+      <div class="card-body">Position security as the feature, not the obstacle. "Governance-native by design — RBAC, audit trails, and data residency baked in, not bolted on." This converts the CISO from a veto to a champion.</div>
+    </div>
+    <div class="card">
+      <span class="pill pill-teal">Blocker → Solve</span>
+      <div class="card-title">Talent gap</div>
+      <div class="card-body">Sell the platform, not the headcount. "Your team of 5 now controls an agentic workforce of 50." Position the solution as the force multiplier that makes existing engineers 10x more effective.</div>
+    </div>
+    <div class="card">
+      <span class="pill pill-amber">Blocker → Solve</span>
+      <div class="card-title">Pilot-to-production failure</div>
+      <div class="card-body">Lead with MLOps depth — CI/CD pipelines, drift detection, continuous monitoring. Show the maintenance plan before they ask for it. Engineers hire vendors who prove they've thought past the demo.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Channel strategy — how to reach technical leads</div>
+  <div class="card">
+    <div class="channel-row">
+      <div class="ch-label">GitHub / OSS</div>
+      <div class="ch-body">Publish reference architectures, SDKs, and benchmark repos. CTOs trust what they can fork. Open-source credibility is the highest-converting CTO touchpoint in 2026.</div>
+    </div>
+    <div class="channel-row">
+      <div class="ch-label">Technical blog</div>
+      <div class="ch-body">Deep-dive posts: "How we connected to a 20-year-old SAP system in 9 days." Real war stories, architecture diagrams, honest failure post-mortems. Ogilvy's long copy, engineering edition.</div>
+    </div>
+    <div class="channel-row">
+      <div class="ch-label">Developer events</div>
+      <div class="ch-body">Sponsor KubeCon, AWS re:Invent, Gartner IT. Run live architecture workshops — not keynotes. CTOs judge vendors by how they handle hard questions in real time.</div>
+    </div>
+    <div class="channel-row">
+      <div class="ch-label">Proof-of-concept offer</div>
+      <div class="ch-body">Free 14-day POC in their stack with their data. Engineers don't trust slides. They trust benchmarks. Make the proof frictionless and the upgrade obvious.</div>
+    </div>
+    <div class="channel-row">
+      <div class="ch-label">LinkedIn (technical content)</div>
+      <div class="ch-body">Not ads — original technical content from your engineering team. CTOs follow engineers, not marketing accounts. Let your architects write the posts.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Success metrics — what to measure</div>
+  <div class="metric-row">
+    <div class="metric-block">
+      <div class="metric-num">POC rate</div>
+      <div class="metric-label">% of qualified CTOs who take the proof-of-concept</div>
+    </div>
+    <div class="metric-block">
+      <div class="metric-num">Time-to-value</div>
+      <div class="metric-label">Days from POC start to first production workflow</div>
+    </div>
+    <div class="metric-block">
+      <div class="metric-num">Tech NPS</div>
+      <div class="metric-label">CTO/architect net promoter score post-onboarding</div>
+    </div>
+    <div class="metric-block">
+      <div class="metric-num">Expansion ARR</div>
+      <div class="metric-label">% of initial technical wins that expand to enterprise contracts</div>
+    </div>
+  </div>
+</div>

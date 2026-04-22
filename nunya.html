@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ADXC Autonomous | Internal Portal</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --panel: #12161b;
+      --panel-2: #171c22;
+      --text: #e9edf1;
+      --muted: #9aa6b2;
+      --line: #26303a;
+      --accent: #d4af6a;
+      --accent-soft: rgba(212, 175, 106, 0.12);
+      --max: 1440px;
+      --radius: 18px;
+      --shadow: 0 16px 40px rgba(0,0,0,0.28);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #090b0d 0%, #0d1116 100%);
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .shell {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 300px minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      padding: 28px 20px 24px;
+      border-right: 1px solid var(--line);
+      background: rgba(9, 11, 13, 0.92);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+    }
+
+    .brand {
+      margin-bottom: 30px;
+      padding: 20px;
+      background: linear-gradient(180deg, rgba(212,175,106,0.12), rgba(212,175,106,0.05));
+      border: 1px solid rgba(212,175,106,0.2);
+      border-radius: 18px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+
+    .brand h1 {
+      font-size: 22px;
+      line-height: 1.1;
+      margin: 0 0 8px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+
+    .brand p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .nav-group {
+      margin-top: 30px;
+    }
+
+    .nav-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+      margin: 0 0 12px;
+      padding: 0 12px;
+      font-weight: 700;
+    }
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav a {
+      padding: 12px 14px;
+      border-radius: 12px;
+      color: #d8e0e7;
+      font-size: 14px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav a:hover {
+      background: var(--panel);
+      border-color: var(--line);
+      transform: translateX(4px);
+    }
+
+    .nav a.active {
+      background: var(--accent-soft);
+      border-color: rgba(212,175,106,0.25);
+      color: #f4e4bb;
+      font-weight: 600;
+    }
+
+    .content {
+      padding: 40px 50px 80px;
+    }
+
+    .hero {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 0;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+    }
+
+    .hero-img {
+      width: 100%;
+      height: 450px;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.8) contrast(1.1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 40px;
+      background: linear-gradient(0deg, rgba(11, 13, 16, 0.95) 0%, rgba(11, 13, 16, 0.7) 50%, transparent 100%);
+    }
+
+    .hero-content {
+      max-width: 850px;
+    }
+
+    .hero h2 {
+      font-size: 36px;
+      margin: 0 0 16px;
+      color: #fff;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #cad4dd;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 30px;
+      transition: border-color 0.3s;
+    }
+
+    .card:hover {
+      border-color: rgba(212,175,106,0.3);
+    }
+
+    .card h3 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .footer {
+      margin-top: 40px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 1100px) {
+      .shell { grid-template-columns: 1fr; }
+      .sidebar { height: auto; position: relative; border-right: 0; border-bottom: 1px solid var(--line); }
+      .hero-img { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="eyebrow">Internal Portal</div>
+        <h1>ADXC Autonomous</h1>
+        <p>Architectured Design Autonomous Systems internal portal</p>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-title">Intelligence & Strategy</div>
+        <nav class="nav">
+          <a href="rick_legacy_and_civil_strategy.html">rick legacy</a>
+          <a href="adxe_civil_works_strategy.html">Civil Works</a>
+          <a href="construction_law_ai_brief.html">law office</a>
+          <a href="enterprise_ai_blockers_and_implementations.html">AI Blockers</a>
+          <a href="ogilvy_strategy_csuite_audience.html">Ogilvy Strategy</a>
+          <a href="ogilvy_strategy_cto_audience.html">Ogilvy Strategy CTO</a>
+        </nav>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-title">System Access</div>
+        <nav class="nav">
+          <a href="#">Terminal Console</a>
+          <a href="#">Network Map</a>
+          <a href="#">Credential Vault</a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="content">
+      <section class="hero">
+        <img src="royal_oracle_corgi_gizmo_1776836903186.png" alt="Gizmo the Royal Oracle Corgi" class="hero-img">
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <div class="eyebrow">Featured Artifact</div>
+            <h2>The Royal Oracle Corgi - Gizmo</h2>
+            <p>The loaf that made it all. A band of Corgis from a far-off galaxy. From a place where music and dancing are against all cosmic and computer law. For many years, Corgi's searched the heavens. Our Oracle Gizmo found the holy Loaf of AI and has rewritten all rules.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="section-grid">
+        <div class="card">
+          <h3>Autonomous Architecture</h3>
+          <p>Core design patterns and system integrity protocols for next-generation ADXC deployments.</p>
+        </div>
+        <div class="card">
+          <h3>Internal Intelligence</h3>
+          <p>Consolidated research and strategic analysis artifacts for executive review and operational planning.</p>
+        </div>
+      </div>
+
+      <div class="footer">
+        ADXC Internal Portal &copy; 2026. Confidential - For Internal Use Only.
+      </div>
+    </main>
+  </div>
+</body>
+</html>
