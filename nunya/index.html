@@ -4,34 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <script>
-    (function() {
-      const user = "FabFam";
-      const pass = "CorgisInControl";
-      
-      function checkAuth() {
-        const stored = sessionStorage.getItem("adxe_auth");
-        if (stored === "true") {
-          document.documentElement.style.visibility = "visible";
-          return;
-        }
-        
-        let u = prompt("Username:");
-        let p = prompt("Password:");
-        
-        if (u === user && p === pass) {
-          sessionStorage.setItem("adxe_auth", "true");
-          document.documentElement.style.visibility = "visible";
-        } else {
-          alert("Unauthorized access.");
-          window.location.href = "about:blank";
-        }
-      }
-      
-      document.documentElement.style.visibility = "hidden";
-      checkAuth();
-    })();
-  </script>
   <title>ADXC Autonomous | Internal Portal</title>
   <style>
     :root {
