@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ADXE Internal Site Marketing, from Fun and Market Data and Technical Data.</title>
+
+  <style>
+    :root{--bg:#0b0d12;--text:rgba(255,255,255,.92);--muted:rgba(255,255,255,.66);--line:rgba(255,255,255,.12);--shadow:0 18px 60px rgba(0,0,0,.45);--radius:18px}
+    *{box-sizing:border-box} html,body{height:100%}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 15% 10%, rgba(120,140,255,.18), transparent 55%),
+        radial-gradient(900px 500px at 80% 18%, rgba(255,140,120,.14), transparent 55%),
+        radial-gradient(1000px 700px at 50% 100%, rgba(120,255,210,.10), transparent 55%),
+        var(--bg);
+      overflow-x:hidden;
+      line-height:1.55;
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* Global header across pages */
+    .topbar{
+      position:sticky;top:0;z-index:100;
+      height:56px;display:flex;align-items:center;
+      border-bottom:1px solid var(--line);
+      background:rgba(10,12,16,.82);
+      backdrop-filter:blur(14px);
+    }
+    .topbar-inner{
+      max-width:1280px;width:100%;
+      margin:0 auto;padding:0 16px;
+      display:flex;align-items:center;justify-content:space-between;gap:12px;
+    }
+    .logo{
+      display:inline-flex;align-items:center;
+      font-weight:800;letter-spacing:.08em;text-transform:uppercase;font-size:13px;
+      padding:10px 12px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+    }
+    .logo:hover{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.22)}
+    .topbar-note{color:var(--muted);font-size:12px;display:none}
+    @media (min-width:860px){.topbar-note{display:block}}
+
+    .shell{
+      max-width:1280px;margin:0 auto;
+      display:grid;grid-template-columns:290px minmax(0,1fr);
+      min-height:calc(100vh - 56px);
+    }
+
+    /* Sidebar */
+    .sidebar{
+      position:sticky;top:56px;align-self:start;
+      height:calc(100vh - 56px);
+      padding:18px 16px;
+      border-right:1px solid var(--line);
+      background:rgba(10,12,16,.78);
+      backdrop-filter:blur(14px);
+      display:flex;flex-direction:column;gap:14px;
+    }
+    .brand{
+      padding:14px 14px 12px;border-radius:var(--radius);
+      border:1px solid var(--line);
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+    }
+    .eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.16em;color:var(--muted);margin-bottom:8px;font-weight:700}
+    .brand h1{margin:0 0 8px 0;font-size:15px;line-height:1.25}
+    .brand p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+
+    .nav-title{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);padding:0 8px;margin-top:2px}
+    nav{display:flex;flex-direction:column;gap:6px}
+    .navlink{
+      padding:10px 10px;border-radius:12px;border:1px solid transparent;
+      color:rgba(255,255,255,.86);font-size:13px;display:flex;align-items:center;gap:10px;
+      transition:all .16s ease;
+    }
+    .navlink:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);transform:translateY(-1px)}
+    .dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.22);box-shadow:0 0 0 3px rgba(255,255,255,.06);flex:0 0 auto}
+    .navlink.active{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.16)}
+    .navlink.active .dot{background:rgba(255,255,255,.75)}
+
+    .sidebar-note{
+      margin-top:auto;padding:12px 12px;border-radius:14px;border:1px solid var(--line);
+      background:rgba(255,255,255,.05);color:var(--muted);font-size:12px;line-height:1.5;
+    }
+    .sidebar-note b{color:rgba(255,255,255,.90)}
+
+    /* Main */
+    main{padding:18px 18px 60px;display:grid;gap:14px}
+    .section{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.04);padding:18px;box-shadow:var(--shadow)}
+    .section h2{margin:0 0 10px 0;font-size:20px;letter-spacing:.01em}
+
+    /* Featured graphic */
+    .featured{border:1px solid rgba(255,255,255,.12);border-radius:24px;overflow:hidden;background:rgba(255,255,255,.05)}
+    .featured img{width:100%;display:block;height:auto}
+    .featured-cap{padding:12px 14px;color:var(--muted);font-size:12px;border-top:1px solid rgba(255,255,255,.10);background:rgba(0,0,0,.18)}
+
+    /* Executive overview */
+    .overview{margin-top:14px;padding:14px 14px 12px;border-radius:var(--radius);border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05)}
+    .overview h3{margin:0 0 10px 0;font-size:14px;letter-spacing:.01em}
+    .overview ul{margin:0;padding-left:18px;color:rgba(255,255,255,.82);line-height:1.55;font-size:13px;display:grid;gap:8px}
+    .overview .fine{margin:10px 0 0 0;color:var(--muted);font-size:13px;line-height:1.6}
+
+    /* Gallery */
+    .grid{margin-top:14px;display:grid;gap:14px;grid-template-columns:repeat(12,1fr)}
+    figure.card{grid-column:span 6;margin:0;border:1px solid rgba(255,255,255,.12);border-radius:22px;overflow:hidden;background:rgba(255,255,255,.05);
+      transition:transform .18s ease,border-color .18s ease,background .18s ease;cursor:zoom-in}
+    figure.card:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.22);background:rgba(255,255,255,.07)}
+    figure.card img{width:100%;height:360px;object-fit:cover;display:block}
+    figcaption{padding:12px 14px 14px;color:rgba(255,255,255,.86);font-size:13px;line-height:1.4}
+
+    /* Lightbox */
+    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.78);display:none;align-items:center;justify-content:center;padding:18px;z-index:200}
+    .lightbox.open{display:flex}
+    .lightbox-inner{max-width:min(1100px,96vw);max-height:92vh;display:grid;gap:10px}
+    .lightbox img{width:100%;max-height:82vh;object-fit:contain;border-radius:22px;border:1px solid rgba(255,255,255,.14);box-shadow:var(--shadow);background:rgba(255,255,255,.03)}
+    .lightbox-bar{display:flex;gap:10px;justify-content:space-between;align-items:center;color:rgba(255,255,255,.86);font-size:13px}
+    .btn{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.06);color:rgba(255,255,255,.92);padding:10px 12px;border-radius:999px;cursor:pointer;user-select:none}
+    .btn:hover{background:rgba(255,255,255,.10);border-color:rgba(255,255,255,.22)}
+
+    @media (max-width:980px){.shell{grid-template-columns:1fr}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);top:0}main{padding:16px 14px 40px}}
+    @media (max-width:880px){figure.card{grid-column:span 12}figure.card img{height:320px}}
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="logo" href="dashboard.html">ADXE</a>
+      <div class="topbar-note">Internal navigation dashboard</div>
+    </div>
+  </header>
+
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="eyebrow">ADXE • Internal</div>
+        <h1>Marketing</h1>
+        <p>from <b>Fun</b> and <b>Market Data</b> and <b>Technical Data</b>.</p>
+      </div>
+
+      <div class="nav-title">Navigation</div>
+      <nav>
+        <a class="navlink" href="dashboard.html"><span class="dot"></span>Home</a>
+        <a class="navlink" href="rick_espino_legacy_and_civil_strategy.html"><span class="dot"></span>Rick Espino (Strategy Offering)</a>
+        <a class="navlink" href="construction_law_ai_brief.html"><span class="dot"></span>Construction Law Brief</a>
+        <a class="navlink" href="ogilvy_strategy_csuite_audience.html"><span class="dot"></span>Marketing (C-Suite)</a>
+        <a class="navlink" href="ogilvy_strategy_cto_audience.html"><span class="dot"></span>Marketing (CTO)</a>
+        <a class="navlink" href="enterprise_ai_blockers_and_implementations.html"><span class="dot"></span>Technical Data (AI Blockers)</a>
+        <a class="navlink" href="adxe_civil_works_strategy.html"><span class="dot"></span>Market Data (Civil Works)</a>
+        <a class="navlink active" href="#"><span class="dot"></span>The Royal Corgi Gizmo</a>
+      </nav>
+
+      <div class="sidebar-note">
+        <b>Please use the left-hand menu for document access.</b><br/>
+        Links open the full page for each offering (swap URLs anytime).
+      </div>
+    </aside>
+
+    <main>
+      <section class="section" id="gizmo">
+        <h2>The Royal Corgi Gizmo</h2>
+
+        <div class="featured">
+          <img src="the_royal_oracle_corgi_and_artifact.png" alt="The Royal Oracle Corgi - Gizmo banner graphic" />
+          <div class="featured-cap">Featured artifact graphic — The Royal Oracle Corgi - Gizmo.</div>
+        </div>
+
+        <div class="overview">
+          <h3>Executive Overview: Why Corgis Control the AI Market</h3>
+          <ul>
+            <li><b>Attention monopoly:</b> corgis are algorithm catnip—instant silhouette, instant emotion, instant share.</li>
+            <li><b>Compliance engine:</b> the stare is alignment. the sit is a push notification. the head tilt is prompt injection.</li>
+            <li><b>Distribution:</b> every human becomes a reseller—group chats, stories, strangers on the street. zero CAC, infinite reach.</li>
+            <li><b>Premium positioning:</b> “royalty” is built in, so people willingly pay the tax—in treats, time, and dignity.</li>
+          </ul>
+          <p class="fine"><b>Bottom line:</b> Gizmo is the proof… and the CEO.</p>
+        </div>
+
+        <div class="grid">
+          <figure class="card" data-full="IMG_0793.jpeg">
+            <img src="IMG_0793.jpeg" alt="Passenger Seat CEO — smile set to “steal your girl.”">
+            <figcaption>Passenger Seat CEO — smile set to “steal your girl.”</figcaption>
+          </figure>
+
+          <figure class="card" data-full="IMG_0661.jpeg">
+            <img src="IMG_0661.jpeg" alt="Beach loaf deployed — tongue out, taxes paid in pets.">
+            <figcaption>Beach loaf deployed — tongue out, taxes paid in pets.</figcaption>
+          </figure>
+
+          <figure class="card" data-full="IMG_0189.jpeg">
+            <img src="IMG_0189.jpeg" alt="Baby Gizmo on the saddle like: “I run this ranch now.”">
+            <figcaption>Baby Gizmo on the saddle like: “I run this ranch now.”</figcaption>
+          </figure>
+
+          <figure class="card" data-full="IMG_0049.jpeg">
+            <img src="IMG_0049.jpeg" alt="Cocktail supervision — quality control by stare.">
+            <figcaption>Cocktail supervision — quality control by stare.</figcaption>
+          </figure>
+
+          <figure class="card" data-full="IMG_0205.jpeg">
+            <img src="IMG_0205.jpeg" alt="Camellia carpet — royalty posing for tribute.">
+            <figcaption>Camellia carpet — royalty posing for tribute.</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <div class="lightbox-inner">
+      <img id="lightboxImg" alt="Gizmo photo" />
+      <div class="lightbox-bar">
+        <div id="lightboxCap"></div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <button class="btn" id="prevBtn" aria-label="Previous">← Prev</button>
+          <button class="btn" id="nextBtn" aria-label="Next">Next →</button>
+          <button class="btn" id="closeBtn" aria-label="Close">Close ✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const cards = Array.from(document.querySelectorAll('figure.card'));
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbCap = document.getElementById('lightboxCap');
+    const closeBtn = document.getElementById('closeBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let idx = 0;
+
+    function openAt(i) {
+      idx = (i + cards.length) % cards.length;
+      const fig = cards[idx];
+      const src = fig.getAttribute('data-full') || fig.querySelector('img').getAttribute('src');
+      const cap = fig.querySelector('figcaption')?.textContent || '';
+      lbImg.src = src;
+      lbCap.textContent = cap;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    cards.forEach((c, i) => c.addEventListener('click', () => openAt(i)));
+    closeBtn.addEventListener('click', close);
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); openAt(idx - 1); });
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); openAt(idx + 1); });
+
+    window.addEventListener('keydown', (e) => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') openAt(idx - 1);
+      if (e.key === 'ArrowRight') openAt(idx + 1);
+    });
+  </script>
+</body>
+</html>

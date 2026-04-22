@@ -1,0 +1,189 @@
+
+<style>
+  * { box-sizing:border-box; margin:0; padding:0; }
+  .wrap { padding:2rem 0; font-family:var(--font-sans); }
+  .eyebrow { font-size:11px; font-weight:500; letter-spacing:.1em; text-transform:uppercase; color:var(--color-text-tertiary); margin-bottom:.5rem; }
+  .hero-head { font-size:26px; font-weight:500; color:var(--color-text-primary); line-height:1.25; margin-bottom:.5rem; }
+  .hero-sub { font-size:15px; color:var(--color-text-secondary); line-height:1.6; max-width:560px; margin-bottom:1.5rem; }
+  .divider { height:.5px; background:var(--color-border-tertiary); margin:1.75rem 0; }
+  .section-title { font-size:12px; font-weight:500; letter-spacing:.07em; text-transform:uppercase; color:var(--color-text-tertiary); margin-bottom:.875rem; }
+  .grid { display:grid; gap:10px; }
+  .g2 { grid-template-columns:1fr 1fr; }
+  .g3 { grid-template-columns:1fr 1fr 1fr; }
+  .card { background:var(--color-background-primary); border:0.5px solid var(--color-border-tertiary); border-radius:var(--border-radius-lg); padding:.875rem 1rem; }
+  .card-title { font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:.3rem; }
+  .card-body { font-size:12px; color:var(--color-text-secondary); line-height:1.55; }
+  .big-quote { font-size:18px; font-weight:500; color:var(--color-text-primary); line-height:1.45; border-left:3px solid #D85A30; padding-left:1.125rem; margin:1.25rem 0; }
+  .pill { display:inline-block; font-size:11px; font-weight:500; padding:2px 10px; border-radius:999px; margin-bottom:.6rem; }
+  .pill-coral { background:#FAECE7; color:#993C1D; }
+  .pill-red { background:#FCEBEB; color:#A32D2D; }
+  .pill-green { background:#EAF3DE; color:#3B6D11; }
+  .pill-amber { background:#FAEEDA; color:#854F0B; }
+  @media (prefers-color-scheme: dark) {
+    .pill-coral { background:#4A1B0C; color:#F5C4B3; }
+    .pill-red { background:#501313; color:#F7C1C1; }
+    .pill-green { background:#173404; color:#C0DD97; }
+    .pill-amber { background:#412402; color:#FAC775; }
+  }
+  .ogilvy-step { display:flex; gap:12px; align-items:flex-start; padding:.75rem 0; border-bottom:.5px solid var(--color-border-tertiary); }
+  .ogilvy-step:last-child { border-bottom:none; }
+  .step-num { font-size:18px; font-weight:500; color:var(--color-text-tertiary); min-width:28px; }
+  .step-name { font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:.25rem; }
+  .step-detail { font-size:12px; color:var(--color-text-secondary); line-height:1.55; }
+  .channel-row { display:flex; align-items:flex-start; gap:12px; padding:.75rem 0; border-bottom:.5px solid var(--color-border-tertiary); }
+  .channel-row:last-child { border-bottom:none; }
+  .ch-label { font-size:12px; font-weight:500; min-width:130px; color:var(--color-text-primary); padding-top:1px; }
+  .ch-body { font-size:12px; color:var(--color-text-secondary); line-height:1.55; flex:1; }
+  .metric-row { display:flex; gap:10px; flex-wrap:wrap; }
+  .metric-block { flex:1; min-width:120px; background:var(--color-background-secondary); border-radius:var(--border-radius-md); padding:.75rem 1rem; }
+  .metric-num { font-size:17px; font-weight:500; color:var(--color-text-primary); margin-bottom:2px; }
+  .metric-label { font-size:11px; color:var(--color-text-secondary); }
+  .fear-card { background:var(--color-background-secondary); border-radius:var(--border-radius-lg); padding:.875rem 1rem; border:0.5px solid var(--color-border-tertiary); }
+  .fear-label { font-size:11px; font-weight:500; color:var(--color-text-tertiary); text-transform:uppercase; letter-spacing:.07em; margin-bottom:.3rem; }
+  .fear-fear { font-size:13px; font-weight:500; color:var(--color-text-primary); margin-bottom:.3rem; }
+  .fear-reframe { font-size:12px; color:var(--color-text-secondary); line-height:1.5; }
+</style>
+
+<div class="wrap">
+  <h2 class="sr-only">Ogilvy-method AI marketing strategy for C-Suite decision makers</h2>
+
+  <div class="eyebrow">Output 2 — C-Suite Decision Makers</div>
+  <div class="hero-head">The boardroom version: AI as a capital allocation decision, not a technology decision.</div>
+  <div class="hero-sub">C-suite leaders aren't buying AI — they're buying competitive survival, margin expansion, and the ability to tell Wall Street a credible growth story. This strategy speaks their language.</div>
+
+  <div class="big-quote">"Ogilvy's first rule: find out what the customer is afraid of. The CEO isn't afraid of AI. They're afraid of their competitor deploying it first."</div>
+
+  <div class="section-title">The Ogilvy Framework — applied to the C-Suite AI sale</div>
+  <div class="card" style="margin-bottom:10px;">
+    <div class="ogilvy-step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <div class="step-name">Research the fear, not the feature set</div>
+        <div class="step-detail">C-suite leaders have three fears in this order: (1) Competitors moving faster, (2) spending capital on AI that never scales past a pilot, (3) regulatory exposure. Every message must address at least one of these directly. Ogilvy: "Know your audience so well you can write what they're already thinking."</div>
+      </div>
+    </div>
+    <div class="ogilvy-step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <div class="step-name">The Big Idea — one sentence the CEO will repeat</div>
+        <div class="step-detail">The big idea for the C-suite is not a feature. It's a competitive outcome. <em>"While 64% of your industry is actively using AI, 95% of their implementations aren't working. We close that gap — for you, before them."</em> This is the headline. Everything else is proof.</div>
+      </div>
+    </div>
+    <div class="ogilvy-step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <div class="step-name">Make it a business case, not a tech brief</div>
+        <div class="step-detail">Ogilvy believed advertising must sell, not entertain. The C-suite version of "selling" is the ROI model they can take to the board. Lead with: cost reduction, revenue enablement, and headcount leverage. The technology is the how. The business case is the why.</div>
+      </div>
+    </div>
+    <div class="ogilvy-step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <div class="step-name">Remove the risk to remove the objection</div>
+        <div class="step-detail">The #1 C-suite objection is "we've seen too many pilots go nowhere." Ogilvy's response: de-risk the commitment structurally. Offer phased deployment, milestone-gated payments, shared risk models. Then tell that story loudly in every piece of marketing collateral.</div>
+      </div>
+    </div>
+    <div class="ogilvy-step">
+      <div class="step-num">05</div>
+      <div class="step-content">
+        <div class="step-name">The aspirational identity (who they'll become)</div>
+        <div class="step-detail">Ogilvy understood that great brands sell identity, not products. The C-suite version: position the CEO as the executive who "didn't get caught flat-footed on AI" — the one who moved while others waited. Gartner projects that 40% of enterprise apps will include task-specific AI agents by end of 2026. Frame inaction as the risk, not adoption.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Reframe the blockers as the sale — C-Suite version</div>
+  <div class="grid g2">
+    <div class="fear-card">
+      <div class="fear-label">Their fear</div>
+      <div class="fear-fear">AI won't generate measurable ROI</div>
+      <div class="fear-reframe">Lead with third-party proof: "66% of enterprises now report productivity gains. Only 20% have seen revenue growth — we focus exclusively on that 20% path. Here's the model."</div>
+    </div>
+    <div class="fear-card">
+      <div class="fear-label">Their fear</div>
+      <div class="fear-fear">Regulatory and legal exposure</div>
+      <div class="fear-reframe">Governance-first positioning: "Compliant by design, not by patch. GDPR, HIPAA, and SOC 2 baked into the architecture — sign-off from Legal before the pilot even starts."</div>
+    </div>
+    <div class="fear-card">
+      <div class="fear-label">Their fear</div>
+      <div class="fear-fear">We don't have the talent to run it</div>
+      <div class="fear-reframe">Sell the managed layer: "We are your AI organization until you build one. We embed, we run, we train your team — and we hand over the keys on a schedule you control."</div>
+    </div>
+    <div class="fear-card">
+      <div class="fear-label">Their fear</div>
+      <div class="fear-fear">The org won't adopt it</div>
+      <div class="fear-reframe">Change management as a deliverable: "We've seen this. The solution is mandates tied to OKRs, not persuasion. We structure the governance model so adoption becomes a business imperative, not a culture war."</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Channel strategy — how to reach C-Suite decision makers</div>
+  <div class="card">
+    <div class="channel-row">
+      <div class="ch-label">Executive briefings</div>
+      <div class="ch-body">Private 1:1 CEO and CFO briefings with a custom ROI model built around their industry. Ogilvy: personalization at the highest level is the highest form of persuasion.</div>
+    </div>
+    <div class="channel-row">
+      <div class="ch-label">Board-level case studies</div>
+      <div class="ch-body">Publish detailed enterprise case studies with verified financial outcomes — actual EBIT impact, headcount leverage ratios, deployment timelines. Put them in Harvard Business Review, not trade press.</div>
+    </div>
+    <div class="channel-row">
+      <div class="ch-label">Peer networks (YPO, Gartner)</div>
+      <div class="ch-body">CEOs trust other CEOs. Invest in customer reference programs. A 10-minute call between a happy CEO and a prospect converts faster than any ad spend. Gartner Symposium is the top-tier venue.</div>
+    </div>
+    <div class="channel-row">
+      <div class="ch-label">Analyst relations</div>
+      <div class="ch-body">Gartner Magic Quadrant positioning, Forrester Wave presence, IDC leadership reports. C-suite buyers use analysts as gatekeepers. If the analysts say you're a leader, the conversation starts differently.</div>
+    </div>
+    <div class="channel-row">
+      <div class="ch-label">Thought leadership (WSJ, FT)</div>
+      <div class="ch-body">Op-eds and contributed content in Wall Street Journal, Financial Times, Fortune. Not about the product — about the competitive landscape. CEOs read what their board reads.</div>
+    </div>
+    <div class="channel-row">
+      <div class="ch-label">ROI calculator tool</div>
+      <div class="ch-body">A branded, industry-specific ROI calculator the CFO can run in 3 minutes. Generates a shareable PDF with cost savings and revenue uplift projections. The CFO becomes your internal champion.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">The Ogilvy-style headline matrix — for each C-suite role</div>
+  <div class="grid g3">
+    <div class="card">
+      <span class="pill pill-coral">CEO</span>
+      <div class="card-title">Competitive positioning headline</div>
+      <div class="card-body">"64% of your industry is deploying AI. 95% of those deployments aren't working. We've solved the 5% problem. Let us show you what production-grade AI actually looks like."</div>
+    </div>
+    <div class="card">
+      <span class="pill pill-amber">CFO</span>
+      <div class="card-title">Capital efficiency headline</div>
+      <div class="card-body">"The question isn't whether AI costs money. It's whether inaction costs more. We'll model your specific cost-reduction and revenue-expansion scenario before you sign anything."</div>
+    </div>
+    <div class="card">
+      <span class="pill pill-green">COO</span>
+      <div class="card-title">Operational scale headline</div>
+      <div class="card-body">"Agentic AI doesn't replace your operations team. It gives 10 people the output of 100 — without adding headcount or replatforming the systems you already run."</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="section-title">Success metrics — what to measure for C-Suite campaigns</div>
+  <div class="metric-row">
+    <div class="metric-block">
+      <div class="metric-num">Executive engagement</div>
+      <div class="metric-label">% of target CEOs who take a first briefing</div>
+    </div>
+    <div class="metric-block">
+      <div class="metric-num">Deal velocity</div>
+      <div class="metric-label">Days from first exec meeting to signed contract</div>
+    </div>
+    <div class="metric-block">
+      <div class="metric-num">ACV</div>
+      <div class="metric-label">Average contract value — C-suite won deals vs technical-led</div>
+    </div>
+    <div class="metric-block">
+      <div class="metric-num">Board sponsorship rate</div>
+      <div class="metric-label">% of implementations with active C-suite sponsor driving adoption</div>
+    </div>
+  </div>
+</div>

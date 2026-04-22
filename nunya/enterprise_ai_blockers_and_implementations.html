@@ -1,0 +1,177 @@
+
+<style>
+  h2.sr-only { position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0) }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  body { font-family:var(--font-sans); }
+  .page { padding:1.5rem 0; }
+  .section-label {
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--color-text-tertiary);
+    margin-bottom:.75rem;
+  }
+  .grid { display:grid; gap:10px; }
+  .g2 { grid-template-columns:1fr 1fr; }
+  .g3 { grid-template-columns:1fr 1fr 1fr; }
+  .card {
+    background:var(--color-background-primary);
+    border:0.5px solid var(--color-border-tertiary);
+    border-radius:var(--border-radius-lg);
+    padding:1rem 1.125rem;
+  }
+  .card-accent-red { border-left:3px solid #E24B4A; border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0; }
+  .card-accent-blue { border-left:3px solid #378ADD; border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0; }
+  .card-accent-teal { border-left:3px solid #1D9E75; border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0; }
+  .card-accent-amber { border-left:3px solid #BA7517; border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0; }
+  .card-accent-purple { border-left:3px solid #534AB7; border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0; }
+  .card-accent-coral { border-left:3px solid #D85A30; border-radius:0 var(--border-radius-lg) var(--border-radius-lg) 0; }
+  .num {
+    font-size:22px;
+    font-weight:500;
+    line-height:1;
+    margin-bottom:.25rem;
+  }
+  .num-red { color:#E24B4A; }
+  .num-blue { color:#378ADD; }
+  .num-teal { color:#1D9E75; }
+  .num-amber { color:#BA7517; }
+  .num-purple { color:#534AB7; }
+  .num-coral { color:#D85A30; }
+  .card-title { font-size:14px; font-weight:500; color:var(--color-text-primary); margin-bottom:.3rem; }
+  .card-sub { font-size:12px; color:var(--color-text-secondary); line-height:1.5; }
+  .stat-pill {
+    display:inline-block;
+    font-size:11px;
+    font-weight:500;
+    padding:2px 8px;
+    border-radius:999px;
+    margin-top:.5rem;
+  }
+  .pill-red { background:#FCEBEB; color:#A32D2D; }
+  .pill-blue { background:#E6F1FB; color:#185FA5; }
+  .pill-teal { background:#E1F5EE; color:#0F6E56; }
+  .pill-amber { background:#FAEEDA; color:#854F0B; }
+  .pill-purple { background:#EEEDFE; color:#3C3489; }
+  .pill-coral { background:#FAECE7; color:#993C1D; }
+  @media (prefers-color-scheme: dark) {
+    .pill-red { background:#501313; color:#F7C1C1; }
+    .pill-blue { background:#042C53; color:#B5D4F4; }
+    .pill-teal { background:#04342C; color:#9FE1CB; }
+    .pill-amber { background:#412402; color:#FAC775; }
+    .pill-purple { background:#26215C; color:#CECBF6; }
+    .pill-coral { background:#4A1B0C; color:#F5C4B3; }
+  }
+  .divider {
+    height:0.5px;
+    background:var(--color-border-tertiary);
+    margin:2rem 0;
+  }
+  .impl-card {
+    background:var(--color-background-secondary);
+    border-radius:var(--border-radius-lg);
+    padding:.875rem 1rem;
+    border:0.5px solid var(--color-border-tertiary);
+  }
+  .impl-icon {
+    font-size:16px;
+    margin-bottom:.4rem;
+    display:block;
+  }
+  .rank {
+    font-size:11px;
+    font-weight:500;
+    color:var(--color-text-tertiary);
+    margin-bottom:.2rem;
+  }
+</style>
+
+<div class="page">
+<h2 class="sr-only">Enterprise AI: Top blockers and most-requested implementations in 2026</h2>
+
+<p class="section-label">Top blockers to AI implementation — medium & large enterprise, 2026</p>
+
+<div class="grid g2">
+  <div class="card card-accent-red">
+    <div class="num num-red">01</div>
+    <div class="card-title">AI skills gap & talent shortage</div>
+    <div class="card-sub">The #1 barrier per Deloitte's 2026 report. Over 90% of global enterprises face critical AI skills shortages — spanning governance, MLOps, and human-AI integration roles.</div>
+    <span class="stat-pill pill-red">$5.5T at risk — IDC</span>
+  </div>
+  <div class="card card-accent-blue">
+    <div class="num num-blue">02</div>
+    <div class="card-title">Fragmented data & poor integration</div>
+    <div class="card-sub">48% of enterprises cite insufficient data as their top challenge. Siloed systems, messy pipelines, and legacy infrastructure trap AI in pilot purgatory before production.</div>
+    <span class="stat-pill pill-blue">48% impacted — NVIDIA</span>
+  </div>
+  <div class="card card-accent-amber">
+    <div class="num num-amber">03</div>
+    <div class="card-title">No measurable ROI / unclear ownership</div>
+    <div class="card-sub">30% can't quantify AI's business value. Unclear ownership and misaligned incentives mean projects stall. Only 1% of leaders call their companies AI-mature.</div>
+    <span class="stat-pill pill-amber">Only 20% see revenue gain — McKinsey</span>
+  </div>
+  <div class="card card-accent-purple">
+    <div class="num num-purple">04</div>
+    <div class="card-title">Regulatory, legal & security friction</div>
+    <div class="card-sub">50% cite privacy and security as primary blockers. Legal and compliance teams hold veto power over deployments. GDPR, HIPAA, SOC 2 create hard gates in regulated industries.</div>
+    <span class="stat-pill pill-purple">50% blocked by security — Glide</span>
+  </div>
+  <div class="card card-accent-teal">
+    <div class="num num-teal">05</div>
+    <div class="card-title">Organizational resistance & change management</div>
+    <div class="card-sub">HR, Legal, and Risk teams actively block initiatives despite C-suite support. End users distrust AI consistency. Frontline workers fear replacement. Each group requires a different solution.</div>
+    <span class="stat-pill pill-teal">95% of pilots fail to scale — MIT NANDA</span>
+  </div>
+  <div class="card card-accent-coral">
+    <div class="num num-coral">06</div>
+    <div class="card-title">Governance gaps & shadow AI</div>
+    <div class="card-sub">Only 18% of organizations have formal AI governance policies. Shadow AI from unauthorized employee tools creates visibility and compliance landmines across the enterprise.</div>
+    <span class="stat-pill pill-coral">18% have formal policies — KPMG</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<p class="section-label">Most-requested AI implementations — what enterprises are buying in 2026</p>
+
+<div class="grid g3">
+  <div class="impl-card">
+    <span class="impl-icon">⚙</span>
+    <div class="rank">Rank 1</div>
+    <div class="card-title">Agentic AI & autonomous workflows</div>
+    <div class="card-sub">Multi-step AI agents that plan, decide, and execute across systems. Customer service, IT ops, finance reconciliation, HR onboarding. 79% of orgs now deploying agents.</div>
+  </div>
+  <div class="impl-card">
+    <span class="impl-icon">🔗</span>
+    <div class="rank">Rank 2</div>
+    <div class="card-title">Enterprise system integration (ERP/CRM/ITSM)</div>
+    <div class="card-sub">AI layers connecting Salesforce, SAP, ServiceNow, Azure M365. The orchestration layer — not the model itself — is the durable competitive advantage.</div>
+  </div>
+  <div class="impl-card">
+    <span class="impl-icon">🎙</span>
+    <div class="rank">Rank 3</div>
+    <div class="card-title">Multimodal AI for customer service</div>
+    <div class="card-sub">Voice + text + document AI for support operations. Automating 85% of tier-1 inquiries. The 2026 customer service land grab is won on multimodal ground.</div>
+  </div>
+  <div class="impl-card">
+    <span class="impl-icon">📊</span>
+    <div class="rank">Rank 4</div>
+    <div class="card-title">AI-powered analytics & decision intelligence</div>
+    <div class="card-sub">LLM-driven BI tools, real-time insights, predictive ops. Finance, supply chain, and C-suite dashboards moving from descriptive to prescriptive and autonomous decisions.</div>
+  </div>
+  <div class="impl-card">
+    <span class="impl-icon">🛡</span>
+    <div class="rank">Rank 5</div>
+    <div class="card-title">AI governance & compliance frameworks</div>
+    <div class="card-sub">Model registries, audit trails, explainability layers, RBAC controls. Governance is shifting from a blocker to a strategic enabler and competitive differentiator.</div>
+  </div>
+  <div class="impl-card">
+    <span class="impl-icon">🧠</span>
+    <div class="rank">Rank 6</div>
+    <div class="card-title">Domain-specific LLMs (DSLMs)</div>
+    <div class="card-sub">Specialized models for legal, financial, medical, and manufacturing domains. Higher accuracy, tighter regulatory control, and dramatically lower hallucination risk than general models.</div>
+  </div>
+</div>
+
+</div>
