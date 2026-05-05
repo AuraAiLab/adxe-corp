@@ -932,24 +932,63 @@
       </div>
     </div>
 
-    <form class="contact-form" action="https://formspree.io/f/mkokrqra" method="POST">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <input type="text" name="company" placeholder="Company" class="full">
-      <select name="use_case" class="full">
-        <option value="" disabled selected>What are you looking to automate?</option>
-        <option value="autonomous-ops">Autonomous Operations / Workflow Automation</option>
-        <option value="ai-infra">AI Systems & Infrastructure Engineering</option>
-        <option value="data-intelligence">Data Enrichment & Intelligence</option>
-        <option value="secops">AI SecOps & Observability</option>
-        <option value="other">Something else — I'll explain below</option>
-      </select>
-      <textarea name="message" placeholder="Describe what you're building or what's slowing you down. The more specific, the better." class="full" required></textarea>
-      <div class="full">
-        <button type="submit" class="btn-primary">Send Inquiry</button>
+    <div style="display: flex; gap: 3rem; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 200px; padding-top: 2rem;">
+        <div
+          style="font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;"
+        >
+          Office:
+        </div>
+        <div style="font-size: 0.95rem; color: var(--text-secondary); font-weight: 300; margin-bottom: 2rem; line-height: 1.6;">
+          7901 4th St N;<br />
+          #13026<br />
+          St. Petersburg, FL 33702
+        </div>
+        <div
+          style="font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500;"
+        >
+          Call us:
+        </div>
+        <div style="font-size: 0.95rem; color: var(--text-secondary); font-weight: 300;">
+          561-909-2907
+        </div>
       </div>
-    </form>
-    <p class="contact-note">Prefer a direct line? Reach us at <a href="mailto:hello@adxecorp.com" style="color: var(--accent); text-decoration: none;">hello@adxecorp.com</a></p>
+
+      <div style="flex: 2; min-width: 300px;">
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/mkokrqra"
+          method="POST"
+          style="margin-top: 0;"
+        >
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="email" name="email" placeholder="Email" required />
+          <input type="text" name="company" placeholder="Company" class="full" />
+          <select name="use_case" class="full">
+            <option value="" disabled selected>What are you looking to automate?</option>
+            <option value="autonomous-ops">Autonomous Operations / Workflow Automation</option>
+            <option value="ai-infra">AI Systems &amp; Infrastructure Engineering</option>
+            <option value="data-intelligence">Data Enrichment &amp; Intelligence</option>
+            <option value="secops">AI SecOps &amp; Observability</option>
+            <option value="other">Something else — I'll explain below</option>
+          </select>
+          <textarea
+            name="message"
+            placeholder="Describe what you're building or what's slowing you down. The more specific, the better."
+            class="full"
+            required></textarea>
+          <div class="full">
+            <button type="submit" class="btn-primary">Send Inquiry</button>
+          </div>
+        </form>
+        <p class="contact-note">
+          Prefer a direct line? Reach us at
+          <a href="mailto:hello@adxecorp.com" style="color: var(--accent); text-decoration: none;"
+            >hello@adxecorp.com</a
+          >
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
